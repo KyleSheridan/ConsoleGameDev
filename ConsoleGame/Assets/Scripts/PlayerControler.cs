@@ -8,15 +8,27 @@ public class PlayerControler : MonoBehaviour
     public InputData input { get; private set; }
 
     public float gravityMultiplier = 3f;
+    [Range(0, 50)]
+    public int gravityCurve = 10;
 
     public float moveSpeed = 30f;
     public float jumpHeight = 1000;
+
+    [Range(0, 50)]
+    public int jumpBufferFrames = 5;
 
     // all inputsources that can control the player
     IInput[] allInputs;
 
     bool grounded = true;
     float groundCheckLength;
+
+    bool canJump = true;
+    bool jumping = false;
+
+    float currentGravity;
+
+    int jumpBufferCountdown;
 
     private void Awake()
     {
@@ -28,6 +40,8 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         groundCheckLength = transform.localScale.y + 0.1f;
+        currentGravity = gravityMultiplier;
+        ResetJumpBuffer();
     }
 
     // Update is called once per frame
@@ -40,14 +54,18 @@ public class PlayerControler : MonoBehaviour
     {
         GetInputs();
 
-        ApplyGravity();
-
         PlayerMove();
 
         Jump();
+
+        CheckGrounded();
+
+        ApplyGravity();
+
+        Debug.Log(input.HorizontalInput);
     }
 
-    void ApplyGravity()
+    void CheckGrounded()
     {
         //Vector3 playerBase = transform.position + (Vector3.down * transform.localScale.y);
 
@@ -55,13 +73,55 @@ public class PlayerControler : MonoBehaviour
         {
             grounded = true;
 
-            rigidbody.AddForce(Physics.gravity, ForceMode.Acceleration);
+            currentGravity = 1;
+
+            jumping = false;
+
+            ResetJumpBuffer();
         }
         else
         {
             grounded = false;
 
-            rigidbody.AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+            if (!jumping) currentGravity = gravityMultiplier;
+            else IncreaseGravity();
+
+            JumpBuffer();
+        }
+    }
+
+    void IncreaseGravity()
+    {
+        // only start increasing gravity at top of jump
+        if(rigidbody.velocity.y > 0) { return; }
+
+        if(currentGravity >= gravityMultiplier) { return; }
+
+        float gravityIncrement = gravityMultiplier / gravityCurve;
+
+        currentGravity += gravityIncrement;
+    }
+
+    void ApplyGravity()
+    {
+        rigidbody.AddForce(Physics.gravity * currentGravity, ForceMode.Acceleration);
+    }
+
+    void ResetJumpBuffer()
+    {
+        jumpBufferCountdown = jumpBufferFrames;
+        canJump = true;
+    }
+
+    void JumpBuffer()
+    {
+        if(jumpBufferCountdown > 0)
+        {
+            jumpBufferCountdown--;
+        } 
+        else
+        {
+            canJump = false;
         }
     }
 
@@ -76,9 +136,13 @@ public class PlayerControler : MonoBehaviour
 
     void Jump()
     {
-        if(input.Jump && grounded)
+        if(canJump)
         {
-            rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            if(input.Jump)
+            {
+                rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                jumping = true;
+            }
         }
     }
 
