@@ -7,11 +7,14 @@ public class PlayerControler : MonoBehaviour
     public Rigidbody rigidbody { get; private set; }
     public InputData input { get; private set; }
 
+    public Transform cam;
+
     public float gravityMultiplier = 3f;
     [Range(0, 50)]
     public int gravityCurve = 10;
 
     public float moveSpeed = 30f;
+    public float turnSmoothTime = 0.1f;
     public float jumpHeight = 1000;
 
     [Range(0, 50)]
@@ -29,6 +32,8 @@ public class PlayerControler : MonoBehaviour
     float currentGravity;
 
     int jumpBufferCountdown;
+
+    float turnSmoothVelocity;
 
     private void Awake()
     {
@@ -127,11 +132,21 @@ public class PlayerControler : MonoBehaviour
 
     private void PlayerMove()
     {
-        Vector3 moveDir = new Vector3(input.HorizontalInput, 0, input.VerticalInput);
+        Vector3 direction = new Vector3(input.HorizontalInput, 0, input.VerticalInput);
 
-        moveDir.Normalize();
+        direction.Normalize();
 
-        rigidbody.AddForce(moveDir * moveSpeed);
+        if(direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg * cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            moveDir.Normalize();
+            rigidbody.AddForce(moveDir * moveSpeed);
+        }
+
     }
 
     void Jump()
