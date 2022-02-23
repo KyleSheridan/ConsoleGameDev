@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,12 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     public Rigidbody rigidbody { get; private set; }
+    public CharacterController controller { get; private set; }
     public InputData input { get; private set; }
 
     public Transform cam;
+
+    public LayerMask hitMask;
 
     public float gravityMultiplier = 3f;
     [Range(0, 50)]
@@ -38,6 +42,7 @@ public class PlayerControler : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
         allInputs = GetComponents<IInput>();
     }
 
@@ -59,21 +64,31 @@ public class PlayerControler : MonoBehaviour
     {
         GetInputs();
 
+        CheckGrounded();
+
+        AssignControllerType();
+
         PlayerMove();
 
         Jump();
 
-        CheckGrounded();
-
         ApplyGravity();
+    }
 
-        Debug.Log(input.HorizontalInput);
+    private void AssignControllerType()
+    {
+        if (grounded)
+        {
+            controller.enabled = true;
+        }
+        else
+        {
+            controller.enabled = false;
+        }
     }
 
     void CheckGrounded()
     {
-        //Vector3 playerBase = transform.position + (Vector3.down * transform.localScale.y);
-
         if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength))
         {
             grounded = true;
@@ -138,13 +153,16 @@ public class PlayerControler : MonoBehaviour
 
         if(direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg * cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            moveDir.Normalize();
+
             rigidbody.AddForce(moveDir * moveSpeed);
+
+            Debug.Log(targetAngle);
         }
 
     }
@@ -173,8 +191,6 @@ public class PlayerControler : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Vector3 playerBase = transform.position + (Vector3.down * transform.localScale.y);
-
         Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * groundCheckLength));
     }
 }
