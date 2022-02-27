@@ -43,9 +43,9 @@ public class CombatManager : MonoBehaviour
     {
         AddInputsToBuffer(input);
 
-        CalculateSequence();
-
         InputBuffer();
+
+        CalculateSequence();
     }
 
     void NextAttackInSequence(InputType type)
@@ -165,14 +165,12 @@ public class CombatManager : MonoBehaviour
     {
         sequenceType = InputType.IRanged;
         StartCoroutine(RangedDebug());
-        NextAttackInSequence(sequenceType);
     }
 
     private void MagicAttack()
     {
         sequenceType = InputType.IMagic;
         StartCoroutine(MagicDebug());
-        NextAttackInSequence(sequenceType);
     }
 
     private void CancelSequence()
