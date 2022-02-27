@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody rigidbody { get; private set; }
-    public CharacterController controller { get; private set; }
     public InputData input { get; private set; }
+    public CombatManager combat { get; private set; }
 
     public Transform cam;
 
@@ -27,7 +27,7 @@ public class PlayerControler : MonoBehaviour
     // all inputsources that can control the player
     IInput[] allInputs;
 
-    bool grounded = true;
+    bool grounded = false;
     float groundCheckLength;
 
     bool canJump = true;
@@ -42,8 +42,8 @@ public class PlayerControler : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
         allInputs = GetComponents<IInput>();
+        combat = GetComponent<CombatManager>();
     }
 
     // Start is called before the first frame update
@@ -52,39 +52,33 @@ public class PlayerControler : MonoBehaviour
         groundCheckLength = transform.localScale.y + 0.1f;
         currentGravity = gravityMultiplier;
         ResetJumpBuffer();
+
+        foreach(var c in Input.GetJoystickNames())
+        {
+            Debug.Log(c);
+        }
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GetInputs();
+
+        combat.UpdateCombat(input);
     }
 
     private void FixedUpdate()
     {
-        GetInputs();
 
         CheckGrounded();
-
-        AssignControllerType();
 
         PlayerMove();
 
         Jump();
 
         ApplyGravity();
-    }
-
-    private void AssignControllerType()
-    {
-        if (grounded)
-        {
-            controller.enabled = true;
-        }
-        else
-        {
-            controller.enabled = false;
-        }
     }
 
     void CheckGrounded()
@@ -113,9 +107,9 @@ public class PlayerControler : MonoBehaviour
     void IncreaseGravity()
     {
         // only start increasing gravity at top of jump
-        if(rigidbody.velocity.y > 0) { return; }
+        if (rigidbody.velocity.y > 0) { return; }
 
-        if(currentGravity >= gravityMultiplier) { return; }
+        if (currentGravity >= gravityMultiplier) { return; }
 
         float gravityIncrement = gravityMultiplier / gravityCurve;
 
@@ -135,10 +129,10 @@ public class PlayerControler : MonoBehaviour
 
     void JumpBuffer()
     {
-        if(jumpBufferCountdown > 0)
+        if (jumpBufferCountdown > 0)
         {
             jumpBufferCountdown--;
-        } 
+        }
         else
         {
             canJump = false;
@@ -149,9 +143,11 @@ public class PlayerControler : MonoBehaviour
     {
         Vector3 direction = new Vector3(input.HorizontalInput, 0, input.VerticalInput);
 
-        direction.Normalize();
+        //direction.Normalize();
 
-        if(direction.magnitude >= 0.1f)
+        direction = Vector3.ClampMagnitude(direction, 1);
+
+        if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -159,20 +155,18 @@ public class PlayerControler : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-
-            rigidbody.AddForce(moveDir * moveSpeed);
-
-            Debug.Log(targetAngle);
+            
+            rigidbody.AddForce(moveDir * moveSpeed * direction.magnitude);            
         }
-
     }
 
     void Jump()
     {
-        if(canJump)
+        if (canJump)
         {
-            if(input.Jump)
+            if (input.Jump)
             {
+
                 rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumping = true;
             }
@@ -194,3 +188,4 @@ public class PlayerControler : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * groundCheckLength));
     }
 }
+

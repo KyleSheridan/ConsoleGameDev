@@ -15,12 +15,12 @@ public class PlayerInput : BaseInput
     {
         return new InputData
         {
-            VerticalInput = Input.GetAxis(verticalInputName),
-            HorizontalInput = Input.GetAxis(horizontalInputName),
+            VerticalInput = Input.GetAxisRaw(verticalInputName),
+            HorizontalInput = Input.GetAxisRaw(horizontalInputName),
             Jump = Input.GetButton(jumpButtonName),
-            MeleeAttack = Input.GetButton(meleeInputName),
-            RangedAttack = Input.GetButton(rangedInputName),
-            MagicAttack = Input.GetButton(magicInputName)
+            MeleeAttack = Input.GetButtonDown(meleeInputName),
+            RangedAttack = Input.GetButtonDown(rangedInputName),
+            MagicAttack = Input.GetButtonDown(magicInputName)
         };
     }
 }

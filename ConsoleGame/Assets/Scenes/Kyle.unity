@@ -377,7 +377,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455108530}
-  m_LocalRotation: {x: 0.14979489, y: 0.000000017022451, z: -0.000000002575586, w: 0.9887171}
+  m_LocalRotation: {x: 0.14979489, y: -0.000000017022442, z: 0.000000002575585, w: 0.9887171}
   m_LocalPosition: {x: 0, y: 17.95, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1049,8 +1049,8 @@ GameObject:
   - component: {fileID: 1431904035}
   - component: {fileID: 1431904034}
   - component: {fileID: 1431904033}
-  - component: {fileID: 1431904039}
   - component: {fileID: 1431904038}
+  - component: {fileID: 1431904039}
   - component: {fileID: 1431904040}
   m_Layer: 6
   m_Name: Physics
@@ -1163,18 +1163,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431904032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd52891af673a54d9030712887d3b75, type: 3}
+  m_Script: {fileID: 11500000, guid: 37fd547511675ce4385e7aca5d8a4fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 455108533}
   hitMask:
     serializedVersion: 2
     m_Bits: 55
-  gravityMultiplier: 200
-  gravityCurve: 20
-  moveSpeed: 1000
+  gravityMultiplier: 300
+  gravityCurve: 10
+  moveSpeed: 1200
   turnSmoothTime: 0.1
-  jumpHeight: 80
+  jumpHeight: 100
   jumpBufferFrames: 5
 --- !u!114 &1431904039
 MonoBehaviour:
@@ -1194,24 +1194,23 @@ MonoBehaviour:
   meleeInputName: Fire1
   rangedInputName: Fire2
   magicInputName: Fire3
---- !u!143 &1431904040
-CharacterController:
+--- !u!114 &1431904040
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431904032}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20d857739b05ec46a249524805d983f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceResetTime: 0.4
+  bufferTime: 0.5
+  maxMeleeAttacks: 3
+  maxRangedAttacks: 1
+  maxMagicAttacks: 2
 --- !u!1 &1705880657
 GameObject:
   m_ObjectHideFlags: 3
@@ -1278,7 +1277,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705880657}
-  m_LocalRotation: {x: 0.14979489, y: 0.000000017012248, z: -0.0000000025774285, w: 0.98871714}
+  m_LocalRotation: {x: 0.14979489, y: -0.00000001701224, z: 0.0000000025774274, w: 0.98871714}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
