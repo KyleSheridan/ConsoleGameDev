@@ -13,7 +13,7 @@ public class CombatManager : MonoBehaviour
     public int maxRangedAttacks;
     public int maxMagicAttacks;
 
-    enum InputType
+    public enum InputType
     {
         Invalid = 0,
         IMelee,
@@ -25,9 +25,13 @@ public class CombatManager : MonoBehaviour
 
     bool inputActive = true;
 
+    public bool attacking { get; private set; }
+
     float timeSinceLastAttack = 0;
-    int currentAttack = 1;
-    InputType sequenceType = InputType.Invalid;
+    public int currentAttack { get; private set; }
+
+    public InputType sequenceType { get; private set; }
+
     InputType lastFrameType = InputType.Invalid;
 
     List<Coroutine> BufferCoroutines = new List<Coroutine>();
@@ -35,7 +39,9 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        attacking = false;
+        currentAttack = 1;
+        sequenceType = InputType.Invalid;
     }
 
     // Update is called once per frame
@@ -158,19 +164,22 @@ public class CombatManager : MonoBehaviour
     private void MeleeAttack()
     {
         sequenceType = InputType.IMelee;
-        StartCoroutine(MeleeDebug());
+
+        attacking = true;
     }
 
     private void RangedAttack()
     {
         sequenceType = InputType.IRanged;
-        StartCoroutine(RangedDebug());
+
+        attacking = true;
     }
 
     private void MagicAttack()
     {
         sequenceType = InputType.IMagic;
-        StartCoroutine(MagicDebug());
+
+        attacking = true;
     }
 
     private void CancelSequence()
@@ -188,6 +197,17 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    public void EndAttack()
+    {
+        NextAttackInSequence(sequenceType);
+
+        inputActive = true;
+
+        sequenceType = InputType.Invalid;
+
+        attacking = false;
+    }
+
     IEnumerator MeleeDebug()
     {
         Debug.Log("Melee Atack...");
@@ -198,9 +218,7 @@ public class CombatManager : MonoBehaviour
 
         Debug.Log("Melee Finished!");
 
-        NextAttackInSequence(sequenceType);
-
-        inputActive = true;
+        EndAttack();
     }
 
     IEnumerator RangedDebug()
@@ -213,9 +231,7 @@ public class CombatManager : MonoBehaviour
 
         Debug.Log("Ranged Finished!");
 
-        NextAttackInSequence(sequenceType);
-
-        inputActive = true;
+        EndAttack();
     }
 
     IEnumerator MagicDebug()
@@ -228,9 +244,7 @@ public class CombatManager : MonoBehaviour
 
         Debug.Log("Magic Finished!");
 
-        NextAttackInSequence(sequenceType);
-
-        inputActive = true;
+        EndAttack();
     }
 }
 

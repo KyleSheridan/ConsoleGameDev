@@ -22,12 +22,15 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1000;
 
     [Range(0, 50)]
+    public int jumpHeightBufferFrames = 5;
+
+    [Range(0, 50)]
     public int jumpBufferFrames = 5;
 
     // all inputsources that can control the player
     IInput[] allInputs;
 
-    bool grounded = false;
+    public bool grounded { get; private set; }
     float groundCheckLength;
 
     bool canJump = true;
@@ -35,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     float currentGravity;
 
+    int jumpHeightBufferCountdown;
     int jumpBufferCountdown;
 
     float turnSmoothVelocity;
@@ -49,16 +53,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        grounded = false;
         groundCheckLength = transform.localScale.y + 0.1f;
         currentGravity = gravityMultiplier;
-        ResetJumpBuffer();
+        ResetJumpHeightBuffer();
 
         foreach(var c in Input.GetJoystickNames())
         {
             Debug.Log(c);
-        }
-
-        
+        } 
     }
 
     // Update is called once per frame
@@ -71,7 +74,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         CheckGrounded();
 
         PlayerMove();
@@ -91,7 +93,9 @@ public class PlayerController : MonoBehaviour
 
             jumping = false;
 
-            ResetJumpBuffer();
+            if(canJump) { return; }
+
+            JumpBuffer();
         }
         else
         {
@@ -100,7 +104,7 @@ public class PlayerController : MonoBehaviour
             if (!jumping) currentGravity = gravityMultiplier;
             else IncreaseGravity();
 
-            JumpBuffer();
+            JumpHeightBuffer();
         }
     }
 
@@ -124,6 +128,7 @@ public class PlayerController : MonoBehaviour
     void ResetJumpBuffer()
     {
         jumpBufferCountdown = jumpBufferFrames;
+        jumpHeightBufferCountdown = jumpHeightBufferFrames;
         canJump = true;
     }
 
@@ -135,12 +140,32 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            ResetJumpBuffer();
+        }
+    }
+
+    void ResetJumpHeightBuffer()
+    {
+        jumpHeightBufferCountdown = jumpHeightBufferFrames;
+        canJump = true;
+    }
+
+    void JumpHeightBuffer()
+    {
+        if (jumpHeightBufferCountdown > 0)
+        {
+            jumpHeightBufferCountdown--;
+        }
+        else
+        {
             canJump = false;
         }
     }
 
     private void PlayerMove()
     {
+        if(combat.attacking) { return; }
+
         Vector3 direction = new Vector3(input.HorizontalInput, 0, input.VerticalInput);
 
         //direction.Normalize();
@@ -162,6 +187,8 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if(combat.attacking) { return; }
+
         if (canJump)
         {
             if (input.Jump)
