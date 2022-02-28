@@ -10,4 +10,9 @@ public class PlayerAnimEvents : MonoBehaviour
     {
         controller.combat.EndAttack();
     }
+
+    public void SpawnMagicBall()
+    {
+        controller.combat.SpawnMagic();
+    }
 }

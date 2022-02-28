@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    public GameObject magic;
+    public Transform spawnPoint;
+
     public float sequenceResetTime;
 
     public float bufferTime = 0.5f;
@@ -52,6 +55,11 @@ public class CombatManager : MonoBehaviour
         InputBuffer();
 
         CalculateSequence();
+    }
+
+    public void SpawnMagic()
+    {
+        Instantiate(magic, spawnPoint.position, spawnPoint.rotation);
     }
 
     void NextAttackInSequence(InputType type)
