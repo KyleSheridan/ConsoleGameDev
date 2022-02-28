@@ -8,7 +8,7 @@ public class MenuController : MonoBehaviour
 
     public GameObject pauseMenu, optionsMenu;
 
-    public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton;
+    public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton, creditsFirstButton, creditsClosedButton;
 
     // Start is called before the first frame update
     void Start()
@@ -59,5 +59,20 @@ public class MenuController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(optionsClosedButton);
+    }
+    public void OpenCredits()
+    {
+        //clear selected object 
+        EventSystem.current.SetSelectedGameObject(null);
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(creditsFirstButton);
+    }
+
+    public void CloseCredits()
+    {
+        //clear selected object 
+        EventSystem.current.SetSelectedGameObject(null);
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(creditsClosedButton);
     }
 }
