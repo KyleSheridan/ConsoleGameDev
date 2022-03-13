@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
+    public TextMeshProUGUI healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,8 @@ public class PlayerHealth : MonoBehaviour
             percentageComplete = percentageComplete * percentageComplete;
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, backHealthBar.fillAmount, percentageComplete);
         }
+
+        healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxHealth);
     }
 
     public void TakeDamage( float damage)
@@ -69,5 +73,11 @@ public class PlayerHealth : MonoBehaviour
     {
         health += healAmount;
         lerpTimer = 0f;
+    }
+
+    public void IncreaseHealth(int level)
+    {
+        maxHealth += (health * 0.01f) * ((100 - level) * 0.1f);
+        health = maxHealth;
     }
 }
