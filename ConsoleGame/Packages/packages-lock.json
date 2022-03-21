@@ -82,6 +82,12 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       }
     },
+    "com.unity.render-pipelines.ps4": {
+      "version": "file:C:/Users/S19158823/Desktop/com.unity.render-pipelines.ps4-1.6.0.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
+    },
     "com.unity.render-pipelines.universal": {
       "version": "12.1.4",
       "depth": 0,
