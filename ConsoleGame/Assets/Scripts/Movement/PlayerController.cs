@@ -85,9 +85,17 @@ public class PlayerController : MonoBehaviour
 
     void CheckGrounded()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength))
+        bool groundCheck = Physics.Raycast(transform.position, Vector3.down, groundCheckLength) ||
+                           Physics.Raycast(transform.position + (Vector3.right * (transform.localScale.x * 0.5f)), Vector3.down, groundCheckLength) ||
+                           Physics.Raycast(transform.position - (Vector3.right * (transform.localScale.x * 0.5f)), Vector3.down, groundCheckLength) ||
+                           Physics.Raycast(transform.position + (Vector3.forward * (transform.localScale.z * 0.5f)), Vector3.down, groundCheckLength) ||
+                           Physics.Raycast(transform.position - (Vector3.forward * (transform.localScale.z * 0.5f)), Vector3.down, groundCheckLength);
+
+        if (groundCheck)
         {
             grounded = true;
+
+            rigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
 
             currentGravity = 1;
 
@@ -213,6 +221,10 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * groundCheckLength));
+        Gizmos.DrawLine(transform.position + (Vector3.right * (transform.localScale.x * 0.5f)),   transform.position + (Vector3.down * groundCheckLength) + (Vector3.right * (transform.localScale.x * 0.5f))); 
+        Gizmos.DrawLine(transform.position - (Vector3.right * (transform.localScale.x * 0.5f)),   transform.position + (Vector3.down * groundCheckLength) - (Vector3.right * (transform.localScale.x * 0.5f)));
+        Gizmos.DrawLine(transform.position + (Vector3.forward * (transform.localScale.z * 0.5f)), transform.position + (Vector3.down * groundCheckLength) + (Vector3.forward * (transform.localScale.z * 0.5f)));
+        Gizmos.DrawLine(transform.position - (Vector3.forward * (transform.localScale.z * 0.5f)), transform.position + (Vector3.down * groundCheckLength) - (Vector3.forward * (transform.localScale.z * 0.5f)));
     }
 }
 
