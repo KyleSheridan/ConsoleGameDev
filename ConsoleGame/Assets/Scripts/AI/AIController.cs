@@ -15,9 +15,6 @@ public class AIController : MonoBehaviour
     public float viewAngle = 90f;
     public LayerMask playerMask;
     public LayerMask obstacleMask;
-    public float meshResolution = 1f;
-    public int edgeIterations = 4;
-    public float edgeDistance = 0.5f;
 
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
@@ -42,6 +39,7 @@ public class AIController : MonoBehaviour
         m_CaughtPlayer = false;
         m_WaitTime = startWaitTime;
         m_TimeToRotate = timeToRotate;
+        m_PlayerInRange = false;
 
         m_CurrentWaypointIndex = 0;
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -55,12 +53,51 @@ public class AIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        EnvironmentView();
+
+        if (!m_IsPatrol)
+        {
+            Chase();
+        }
+
+        else
+        {
+            Patrol();
+        }
     }
 
     private void Chase()
     {
+        m_PlayerNear = false;
+        playerLastPosition = Vector3.zero;
 
+        if (!m_CaughtPlayer)
+        {
+            Move(speedRun);
+            navMeshAgent.SetDestination(m_PlayerPosition);
+        }
+
+        if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        {
+            if(m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position,GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
+            {
+                m_IsPatrol = true;
+                m_PlayerNear = false;
+                Move(speedWalk);
+                m_TimeToRotate = timeToRotate;
+                m_WaitTime = startWaitTime;
+                navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+            }
+
+            else
+            {
+                if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
+                {
+                    Stop();
+                    m_WaitTime -= Time.deltaTime;
+                }
+            }
+        }
     }
 
     private void Patrol()
@@ -70,7 +107,7 @@ public class AIController : MonoBehaviour
             if(m_TimeToRotate <= 0)
             {
                 Move(speedWalk);
-                LookingPlayer(playerLastPosition);
+                LookForPlayerLastPosition(playerLastPosition);
             }
             else
             {
@@ -116,7 +153,7 @@ public class AIController : MonoBehaviour
 
     public void NextWaypoint()
     {
-        m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+        m_CurrentWaypointIndex = Random.Range(0, waypoints.Length - 1);
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
     }
 
@@ -125,10 +162,10 @@ public class AIController : MonoBehaviour
         m_CaughtPlayer = true;
     }
 
-    void LookingPlayer(Vector3 player)
+    void LookForPlayerLastPosition(Vector3 lastPlayerPos)
     {
-        navMeshAgent.SetDestination(player);
-        if(Vector3.Distance(transform.position,player) <= 0.3)
+        navMeshAgent.SetDestination(lastPlayerPos);
+        if(Vector3.Distance(transform.position, lastPlayerPos) <= 0.3)
         {
             if(m_WaitTime <= 0)
             {
