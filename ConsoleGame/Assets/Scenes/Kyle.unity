@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2349,7 +2349,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455108530}
-  m_LocalRotation: {x: 0.1989996, y: 0.000005213742, z: -0.0000010586964, w: 0.9799996}
+  m_LocalRotation: {x: 0.1989996, y: 0.000005196828, z: -0.0000010552831, w: 0.9799996}
   m_LocalPosition: {x: -0.00015934551, y: 17.45, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4552,7 +4552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magic: {fileID: 6601742124590583224, guid: 06c66a0eb36abbf4ab093458f2439974, type: 3}
   spawnPoint: {fileID: 1600602612}
-  sequenceResetTime: 0.4
+  sequenceResetTime: 0.6
   bufferTime: 0.5
   maxMeleeAttacks: 3
   maxRangedAttacks: 1
@@ -4578,43 +4578,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431904032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdb58eafb7958e9479c3c85c77af0f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a19dee276e6e7545a64b8c9280c67b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vitality:
-    level: 8
-    stats:
-    - stat: {fileID: 11400000, guid: ea25093bc3d6ec742acb12fa11a44a05, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: 6b0e671f767807f4b85fa6a4bd819d34, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: 776aea0586d10964297a45693532b5c3, type: 2}
-      increaseAmount: 0
-  Strength:
-    level: 8
-    stats:
-    - stat: {fileID: 11400000, guid: 3c2dd9402a133744f9f3ec2d3d625819, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: 4684673f62e2649429d264566d1c7d1c, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: 6b0e671f767807f4b85fa6a4bd819d34, type: 2}
-      increaseAmount: 0
-  Dexterity:
-    level: 7
-    stats:
-    - stat: {fileID: 11400000, guid: 4684673f62e2649429d264566d1c7d1c, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: 445d18a5573399548bdf9367351d9fb4, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: ef6f39e037d76c046a659c30ddd6a6b6, type: 2}
-      increaseAmount: 0
-  Intelligence:
-    level: 5
-    stats:
-    - stat: {fileID: 11400000, guid: e06e15e9a5023c441befd87a06e2816d, type: 2}
-      increaseAmount: 0
-    - stat: {fileID: 11400000, guid: 776aea0586d10964297a45693532b5c3, type: 2}
-      increaseAmount: 0
+  startVitality: 1
+  startStrength: 1
+  startDexterity: 1
+  startIntelligence: 1
+  moveSpeed: 1200
+  Health:
+    baseValue: 0
+  PhysicalDefence:
+    baseValue: 0
+  MagicDefence:
+    baseValue: 0
+  MovementSpeed:
+    baseValue: 0
+  AttackSpeed:
+    baseValue: 0
+  MeleeDamage:
+    baseValue: 0
+  RangedDamage:
+    baseValue: 0
+  MagicDamage:
+    baseValue: 0
 --- !u!1 &1600602611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,7 +4837,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705880657}
-  m_LocalRotation: {x: 0.19899957, y: 0.000005213716, z: -0.0000010587016, w: 0.9799996}
+  m_LocalRotation: {x: 0.19899957, y: 0.0000051968536, z: -0.0000010552775, w: 0.9799996}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-[System.Serializable]
+[Serializable]
 public class CharacterStat
 {
     public float baseValue;

@@ -8,7 +8,7 @@ public class CombatManager : MonoBehaviour
     public GameObject magic;
     public Transform spawnPoint;
 
-    public float sequenceResetTime;
+    public float sequenceResetTime = 0.4f;
 
     public float bufferTime = 0.5f;
 
@@ -149,7 +149,6 @@ public class CombatManager : MonoBehaviour
 
     void CalculateSequence()
     {
-        if(sequenceType == InputType.Invalid) { return; }
         if(sequenceType != lastFrameType)
         {
             CancelSequence();

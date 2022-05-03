@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rigidbody { get; private set; }
     public InputData input { get; private set; }
     public CombatManager combat { get; private set; }
+    public Character characterStats { get; private set; }
 
     public Transform cam;
 
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         allInputs = GetComponents<IInput>();
         combat = GetComponent<CombatManager>();
+        characterStats = GetComponent<Character>();
     }
 
     // Start is called before the first frame update
@@ -189,7 +191,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             
-            rigidbody.AddForce(moveDir * moveSpeed * direction.magnitude);            
+            rigidbody.AddForce(moveDir * characterStats.MovementSpeed.baseValue * direction.magnitude);
         }
     }
 
