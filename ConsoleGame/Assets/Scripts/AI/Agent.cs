@@ -10,6 +10,7 @@ public class Agent : MonoBehaviour
     public Transform[] waypoints;
     public int m_CurrentWaypointIndex;
 
+    public Transform player;
 
     public Animator Anim;
 
@@ -64,6 +65,8 @@ public class Agent : MonoBehaviour
     {
         sm.Update();
 
+
+
         if(m_IsPatrol && (sm.currentState.GetType() != typeof(WanderState)))
         {
             sm.changeState(new WanderState(this));
@@ -71,7 +74,7 @@ public class Agent : MonoBehaviour
 
         else if(!m_PlayerNear && (sm.currentState.GetType() != typeof(ChaseState)))
         {
-            sm.changeState(new ChaseState(this, m_PlayerPosition));
+            sm.changeState(new ChaseState(this, player));
         }
     }
 
