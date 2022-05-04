@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rigidbody { get; private set; }
-    public InputData input { get; private set; }
     public CombatManager combat { get; private set; }
     public Character characterStats { get; private set; }
 
@@ -21,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 30f;
     public float turnSmoothTime = 0.1f;
     public float jumpHeight = 1000;
+    public float wallRunMultiplier = 0.9f;
+    public float wallJumpForce = 100f;
 
     [Range(0, 50)]
     public int jumpHeightBufferFrames = 5;
@@ -28,14 +29,18 @@ public class PlayerController : MonoBehaviour
     [Range(0, 50)]
     public int jumpBufferFrames = 5;
 
-    // all inputsources that can control the player
-    IInput[] allInputs;
-
     public bool grounded { get; private set; }
     float groundCheckLength;
 
     bool canJump = true;
+    bool canDoubleJump = false;
+    bool doubleJumpActive = false;
     bool jumping = false;
+
+    [HideInInspector]
+    public bool wallRunning = false;
+    [HideInInspector]
+    public Vector3 wallNormal;
 
     float currentGravity;
 
@@ -47,7 +52,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-        allInputs = GetComponents<IInput>();
         combat = GetComponent<CombatManager>();
         characterStats = GetComponent<Character>();
     }
@@ -69,9 +73,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInputs();
-
-        combat.UpdateCombat(input);
+        combat.UpdateCombat(InputManager.Instance.input);
     }
 
     private void FixedUpdate()
@@ -103,6 +105,8 @@ public class PlayerController : MonoBehaviour
 
             jumping = false;
 
+            canDoubleJump = true;
+
             if(canJump) { return; }
 
             JumpBuffer();
@@ -114,7 +118,23 @@ public class PlayerController : MonoBehaviour
             if (!jumping) currentGravity = gravityMultiplier;
             else IncreaseGravity();
 
-            JumpHeightBuffer();
+            if (!doubleJumpActive)
+                JumpHeightBuffer();
+
+            if(!canJump && !InputManager.Instance.input.Jump && canDoubleJump)
+            {
+                canJump = true;
+                canDoubleJump = false;
+                doubleJumpActive = true;
+
+                ResetJumpBuffer();
+            }
+        }
+
+        if(wallRunning)
+        {
+            currentGravity = 0;
+            JumpBuffer();
         }
     }
 
@@ -138,8 +158,7 @@ public class PlayerController : MonoBehaviour
     void ResetJumpBuffer()
     {
         jumpBufferCountdown = jumpBufferFrames;
-        jumpHeightBufferCountdown = jumpHeightBufferFrames;
-        canJump = true;
+        ResetJumpHeightBuffer();
     }
 
     void JumpBuffer()
@@ -158,6 +177,7 @@ public class PlayerController : MonoBehaviour
     {
         jumpHeightBufferCountdown = jumpHeightBufferFrames;
         canJump = true;
+        currentGravity = 1;
     }
 
     void JumpHeightBuffer()
@@ -176,11 +196,16 @@ public class PlayerController : MonoBehaviour
     {
         if(combat.attacking) { return; }
 
-        Vector3 direction = new Vector3(input.HorizontalInput, 0, input.VerticalInput);
+        Vector3 direction = new Vector3(InputManager.Instance.input.HorizontalInput, 0, InputManager.Instance.input.VerticalInput);
 
         //direction.Normalize();
 
         direction = Vector3.ClampMagnitude(direction, 1);
+
+        float actualSpeed = characterStats.MovementSpeed.baseValue;
+
+        if (wallRunning)
+            actualSpeed *= wallRunMultiplier;
 
         if (direction.magnitude >= 0.1f)
         {
@@ -191,7 +216,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             
-            rigidbody.AddForce(moveDir * characterStats.MovementSpeed.baseValue * direction.magnitude);
+            rigidbody.AddForce(moveDir * actualSpeed * direction.magnitude);
         }
     }
 
@@ -201,22 +226,22 @@ public class PlayerController : MonoBehaviour
 
         if (canJump)
         {
-            if (input.Jump)
+            if (InputManager.Instance.input.Jump)
             {
+                if (wallRunning)
+                {
+                    rigidbody.AddForce(wallNormal * wallJumpForce, ForceMode.Impulse);
+                }
+
+                if (doubleJumpActive)
+                {
+                    doubleJumpActive = false;
+                    ResetJumpHeightBuffer();
+                }
 
                 rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumping = true;
             }
-        }
-    }
-
-    void GetInputs()
-    {
-        input = new InputData();
-
-        for (int i = 0; i < allInputs.Length; i++)
-        {
-            input = allInputs[i].GenerateInput();
         }
     }
 
