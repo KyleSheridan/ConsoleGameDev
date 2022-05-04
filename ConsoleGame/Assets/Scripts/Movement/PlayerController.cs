@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool wallRunning = false;
     [HideInInspector]
+    public bool wallRunningOnLeft = false;
+
+    [HideInInspector]
     public Vector3 wallNormal;
 
     float currentGravity;

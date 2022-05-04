@@ -36,5 +36,9 @@ public class AnimatorManager : MonoBehaviour
         animator.SetInteger("attackType", (int)controller.combat.sequenceType);
 
         animator.SetBool("attacking", controller.combat.attacking);
+
+        animator.SetBool("isWallRunning", controller.wallRunning);
+
+        animator.SetBool("wallRunMirror", controller.wallRunningOnLeft);
     }
 }

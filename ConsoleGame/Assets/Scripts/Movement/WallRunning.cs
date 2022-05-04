@@ -36,8 +36,8 @@ public class WallRunning : MonoBehaviour
 
     private void CheckForWall()
     {
-        wallLeft = Physics.Raycast(transform.position, transform.right, out leftWallHit, wallCheckDistance, wallMask);
-        wallRight = Physics.Raycast(transform.position, -transform.right, out rightWallHit, wallCheckDistance, wallMask);
+        wallLeft = Physics.Raycast(transform.position, -transform.right, out leftWallHit, wallCheckDistance, wallMask);
+        wallRight = Physics.Raycast(transform.position, transform.right, out rightWallHit, wallCheckDistance, wallMask);
     }
 
     private bool AboveGround()
@@ -60,6 +60,8 @@ public class WallRunning : MonoBehaviour
     private void StartWallRun()
     {
         controller.wallRunning = true;
+
+        controller.wallRunningOnLeft = wallLeft;
 
         controller.wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
 
