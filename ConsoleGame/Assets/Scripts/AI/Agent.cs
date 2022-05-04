@@ -37,11 +37,6 @@ public class Agent : MonoBehaviour
     public bool m_IsPatrol;
     public bool m_CaughtPlayer;
 
-   
-
-    //sensors s;
-
-    //public StatsSystem statsys;
 
     // Start is called before the first frame update
     void Start()
@@ -74,10 +69,33 @@ public class Agent : MonoBehaviour
             sm.changeState(new WanderState(this));
         }
 
-        else if(!m_IsPatrol && (sm.currentState.GetType() != typeof(ChaseState)))
+        else if(!m_PlayerNear && (sm.currentState.GetType() != typeof(ChaseState)))
         {
-            //sm.changeState(new ChaseState(this));
+            sm.changeState(new ChaseState(this, m_PlayerPosition));
         }
+    }
+
+    public void Move(float speed)
+    {
+        navMeshAgent.isStopped = false;
+        navMeshAgent.speed = speed;
+    }
+
+    public void Stop()
+    {
+        navMeshAgent.isStopped = true;
+        navMeshAgent.speed = 0;
+    }
+
+    public void NextWaypoint()
+    {
+        m_CurrentWaypointIndex = Random.Range(0, waypoints.Length - 1);
+        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+    }
+
+    void CaughtPlayer()
+    {
+        m_CaughtPlayer = true;
     }
 
     void EnvironmentView()

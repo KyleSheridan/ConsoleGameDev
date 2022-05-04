@@ -26,7 +26,25 @@ public class WanderState : State
 
     public override void Execute()
     {
-        Debug.Log("updating wander state");
+        agent.m_PlayerNear = false;
+        agent.playerLastPosition = Vector3.zero;
+        agent.navMeshAgent.SetDestination(agent.waypoints[agent.m_CurrentWaypointIndex].position);
+        if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance)
+        {
+            if (agent.m_WaitTime <= 0)
+            {
+                agent.NextWaypoint();
+                agent.Move(agent.speedWalk);
+                agent.m_WaitTime = agent.startWaitTime;
+            }
+
+            else
+            {
+                agent.Stop();
+                agent.m_WaitTime -= Time.deltaTime;
+            }
+        }
+        /*Debug.Log("updating wander state");
         if (!moving)
         {
             Debug.Log(wanderPoints);
@@ -44,7 +62,7 @@ public class WanderState : State
             moving = false;
         }
 
-        lastFrameLocation = agent.transform.position;
+        lastFrameLocation = agent.transform.position;*/
     }
 
 

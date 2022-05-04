@@ -6,9 +6,6 @@ public class ChaseState : State
 {
     Transform player;
 
-    float speedRun;
-    float speedWalk;
-
     public ChaseState(Agent owner, Transform player) : base(owner)
     {
         this.player = player;
@@ -26,7 +23,7 @@ public class ChaseState : State
 
         if (!agent.m_CaughtPlayer)
         {
-            Move(speedRun);
+            Move(agent.speedRun);
             agent.navMeshAgent.SetDestination(agent.m_PlayerPosition);
         }
 
@@ -36,7 +33,7 @@ public class ChaseState : State
             {
                 agent.m_IsPatrol = true;
                 agent.m_PlayerNear = false;
-                Move(speedWalk);
+                Move(agent.speedWalk);
                 agent.m_TimeToRotate = agent.timeToRotate;
                 agent.m_WaitTime = agent.startWaitTime;
                 agent.navMeshAgent.SetDestination(agent.waypoints[agent.m_CurrentWaypointIndex].position);
