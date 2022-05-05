@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class InputManager : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
 #if !UNITY_PS4
-        //CinemachineCore.GetInputAxis = GetAxisCustom;
+        CinemachineCore.GetInputAxis = GetAxisCustom;
 #endif
     }
 
@@ -50,12 +51,12 @@ public class InputManager : MonoBehaviour
         float camX = Input.GetAxisRaw("CameraX");
         float camY = Input.GetAxisRaw("CameraY");
 
-        if (axisName == "Mouse X")
+        if (axisName == "C_CameraX")
         {
             Debug.Log(camX);
             return camX;
         }
-        else if (axisName == "Mouse Y")
+        else if (axisName == "C_CameraY")
         {
             return camY;
         }
