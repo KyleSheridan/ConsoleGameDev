@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AIAnimManager : MonoBehaviour
 {
-    int randnum;
     public Animator animator { get; private set; }
 
     public AgentNav agentNav;
@@ -20,6 +19,7 @@ public class AIAnimManager : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         agentChase = GetComponent<AgentChase>();
         agentNav = GetComponent<AgentNav>();
+        aiMan = GetComponent<AIManager>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,6 @@ public class AIAnimManager : MonoBehaviour
     {
         SetParameters();
 
-        int randnum = UnityEngine.Random.Range(1, 2);
     }
 
     private void SetParameters()

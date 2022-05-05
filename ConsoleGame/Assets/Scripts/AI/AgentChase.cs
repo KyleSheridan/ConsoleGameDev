@@ -68,7 +68,7 @@ public class AgentChase : MonoBehaviour
             navMeshAgent.SetDestination(playerPosition);
         }
 
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        if ((player.transform.position - transform.position).magnitude <= navMeshAgent.stoppingDistance)
         {
             m_CaughtPlayer = true;
             agentNav.wandering = false;
@@ -78,9 +78,10 @@ public class AgentChase : MonoBehaviour
             //Functionality
         }
 
-        else if(!(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance))
+        else //if(!(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance))
         {
             m_CaughtPlayer = false;
+            attacking = false;
         }
 
     }

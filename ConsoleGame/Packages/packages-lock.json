@@ -83,7 +83,7 @@
       }
     },
     "com.unity.render-pipelines.ps4": {
-      "version": "file:D:/syky7/com.unity.render-pipelines.ps4-1.4.0.tgz",
+      "version": "file:E:/Year3/Console/PS4_Plugins/com.unity.render-pipelines.ps4-1.4.0.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {}

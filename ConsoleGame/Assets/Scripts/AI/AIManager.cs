@@ -23,15 +23,16 @@ public class AIManager : MonoBehaviour
         if(aiHealth <= 0)
         {
             dead = true;
-            StartCoroutine(DestroyWait(4f));
+            //StartCoroutine(DestroyWait(4f));
 
-            Destroy(gameObject);
+            
         }
     }
 
     IEnumerator DestroyWait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        //Destroy(gameObject);
     }
 
 }
