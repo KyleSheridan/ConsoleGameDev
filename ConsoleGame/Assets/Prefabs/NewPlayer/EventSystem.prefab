@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 6522745122228436209}
   - component: {fileID: 6522745122228436208}
   - component: {fileID: 6522745122228436211}
-  - component: {fileID: 6522745122228436210}
-  - component: {fileID: 6522745122228436214}
   - component: {fileID: 6522745122228436215}
   - component: {fileID: 6522745122228436212}
   m_Layer: 0
@@ -71,44 +69,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &6522745122228436210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6522745122228436205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9662fd6666d634bba08e272b8f7795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chipSpeed: 2
-  frontHealthBar: {fileID: 0}
-  backHealthBar: {fileID: 0}
-  healthText: {fileID: 0}
---- !u!114 &6522745122228436214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6522745122228436205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5365d1fc225fb14d8329aaaaeaca973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
-  currentXP: 0
-  requiredXp: 130
-  frontXpBar: {fileID: 0}
-  backXpBar: {fileID: 0}
-  levelText: {fileID: 0}
-  xpText: {fileID: 0}
-  additionMultiplier: 300
-  powerMultiplier: 2
-  divisionMultiplier: 2
 --- !u!114 &6522745122228436215
 MonoBehaviour:
   m_ObjectHideFlags: 0
