@@ -6,10 +6,11 @@ using UnityEngine.EventSystems;
 public class MenuController : MonoBehaviour
 {
 
-    public GameObject pauseMenu, optionsMenu;
+    public GameObject pauseMenu;
 
     public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton, creditsFirstButton, creditsClosedButton;
 
+    public GameObject playerUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +31,8 @@ public class MenuController : MonoBehaviour
         if (!pauseMenu.activeInHierarchy)
         {
             pauseMenu.SetActive(true);
+            playerUI.SetActive(false);
             Time.timeScale = 0f;
-
             //clear selected object 
             EventSystem.current.SetSelectedGameObject(null);
             //set a new selected object
@@ -40,6 +41,7 @@ public class MenuController : MonoBehaviour
         else
         {
             pauseMenu.SetActive(false);
+            playerUI.SetActive(true);
             Time.timeScale = 1f;
         }
     }
