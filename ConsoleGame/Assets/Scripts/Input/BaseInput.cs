@@ -10,6 +10,7 @@ public struct InputData
     public bool MeleeAttack;
     public bool RangedAttack;
     public bool MagicAttack;
+    public bool LevelUp;
 }
 
 public interface IInput

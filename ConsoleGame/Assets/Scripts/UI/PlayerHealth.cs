@@ -8,11 +8,12 @@ public class PlayerHealth : MonoBehaviour
 {
     private float health;
     private float lerpTimer;
-    public float maxHealth = 100f;
+    public static float maxHealth = 100f;
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,5 +80,11 @@ public class PlayerHealth : MonoBehaviour
     {
         maxHealth += (health * 0.01f) * ((100 - level) * 0.1f);
         health = maxHealth;
+    }
+
+    public void FillHealth()
+    {
+        health = maxHealth;
+        lerpTimer = 0f;
     }
 }

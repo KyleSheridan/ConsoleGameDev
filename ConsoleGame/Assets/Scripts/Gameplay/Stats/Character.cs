@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
 
     public int moveSpeed = 1000;
 
+    public int Level { get; private set; }
+
     public int Vitality { get; private set; }
     public int Strength { get; private set; }
     public int Dexterity { get; private set; }
@@ -28,6 +30,8 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Level = 1;
+
         Vitality = startVitality;
         Strength = startStrength;
         Dexterity = startDexterity;
@@ -47,12 +51,6 @@ public class Character : MonoBehaviour
         Debug.Log(MagicDamage.baseValue);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void UpdateStats()
     {
         Health.baseValue = 100 + (25 * Vitality);
@@ -62,5 +60,39 @@ public class Character : MonoBehaviour
         MeleeDamage.baseValue = 20 + (5 * Strength) + (2 * Dexterity);
         RangedDamage.baseValue = 1 + (5 * Dexterity) + (2 * Strength);
         MagicDamage.baseValue = 15 + (6 * Intelligence);
+
+        PlayerHealth.maxHealth = Health.Value;
+    }
+
+    public void IncreaseVitality()
+    {
+        Level++;
+        Vitality++;
+
+        UpdateStats();
+    }
+
+    public void IncreaseStrength()
+    {
+        Level++;
+        Strength++;
+
+        UpdateStats();
+    }
+
+    public void IncreaseDexterity()
+    {
+        Level++;
+        Dexterity++;
+
+        UpdateStats();
+    }
+
+    public void IncreaseIntelligence()
+    {
+        Level++;
+        Intelligence++;
+
+        UpdateStats();
     }
 }

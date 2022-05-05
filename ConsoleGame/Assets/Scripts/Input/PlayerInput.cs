@@ -10,6 +10,7 @@ public class PlayerInput : BaseInput
     public string meleeInputName = "Fire1";
     public string rangedInputName = "Fire2";
     public string magicInputName = "Fire3";
+    public string levelUpMenuName = "LevelUp";
 
     public override InputData GenerateInput()
     {
@@ -20,7 +21,8 @@ public class PlayerInput : BaseInput
             Jump = Input.GetButton(jumpButtonName),
             MeleeAttack = Input.GetButtonDown(meleeInputName),
             RangedAttack = Input.GetButtonDown(rangedInputName),
-            MagicAttack = Input.GetButtonDown(magicInputName)
+            MagicAttack = Input.GetButtonDown(magicInputName),
+            LevelUp = Input.GetButtonDown(levelUpMenuName)
         };
     }
 }
