@@ -10,26 +10,56 @@ public class InputManager : MonoBehaviour
 
     public InputData input { get; private set; }
 
+    public
     // all inputsources that can control the player
     IInput[] allInputs;
 
     private void Awake()
     {
-        if(_instance !=null && _instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
             _instance = this;
-            
-            allInputs = GetComponents<IInput>();
+
+#if UNITY_PS4
+            allInputs = GetComponents<ConsoleInput>();
+#else
+            allInputs = GetComponents<PlayerInput>();
+#endif
+
         }
+    }
+
+    private void Update()
+    {
+#if !UNITY_PS4
+        //CinemachineCore.GetInputAxis = GetAxisCustom;
+#endif
     }
 
     private void LateUpdate()
     {
         GetInputs();
+    }
+
+    public float GetAxisCustom(string axisName)
+    {
+        float camX = Input.GetAxisRaw("CameraX");
+        float camY = Input.GetAxisRaw("CameraY");
+
+        if (axisName == "Mouse X")
+        {
+            Debug.Log(camX);
+            return camX;
+        }
+        else if (axisName == "Mouse Y")
+        {
+            return camY;
+        }
+        return 0;
     }
 
     void GetInputs()
@@ -44,7 +74,7 @@ public class InputManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(this == _instance)
+        if (this == _instance)
         {
             _instance = null;
         }

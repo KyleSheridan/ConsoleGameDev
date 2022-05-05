@@ -323,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7149422028701302868}
   - component: {fileID: 7149422028701302866}
+  - component: {fileID: 7698163523641503541}
   - component: {fileID: 7149422028701302869}
   - component: {fileID: 3168079586918919559}
   - component: {fileID: 7660411908257268967}
@@ -361,6 +362,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e609e0a976fdf2e4481d3cc537516297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7698163523641503541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7149422028701302871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56b9654d4a9a4d4fb0d07bb6b5c44f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalInputName: Vertical
+  horizontalInputName: Horizontal
+  jumpButtonName: C_Jump
+  meleeInputName: C_Fire1
+  rangedInputName: C_Fire2
+  magicInputName: C_Fire3
+  levelUpMenuName: C_Touch
 --- !u!114 &7149422028701302869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +399,7 @@ MonoBehaviour:
   meleeInputName: Fire1
   rangedInputName: Fire2
   magicInputName: Fire3
+  levelUpMenuName: LevelUp
 --- !u!114 &3168079586918919559
 MonoBehaviour:
   m_ObjectHideFlags: 0
