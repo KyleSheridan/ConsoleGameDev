@@ -6,18 +6,24 @@ using UnityEngine.AI;
 
 public class AIManager : MonoBehaviour
 {
-    public float aiHealth = 50f;
+    public float aiHealth;
     public bool dead = false;
 
     AgentChase agentChase;
     AgentNav agentNav;
     NavMeshAgent navMesh;
 
+    Character stats;
+
     private void Start()
     {
         agentChase = GetComponent<AgentChase>();
         agentNav = GetComponent<AgentNav>();
         navMesh = GetComponent<NavMeshAgent>();
+
+        stats = GetComponent<Character>();
+
+        aiHealth = stats.Health.Value;
     }
     // Update is called once per frame
     void Update()
@@ -28,7 +34,13 @@ public class AIManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Melee")
         {
-            aiHealth -= 0; //Value
+            float baseDamage = other.gameObject.GetComponentInParent<PlayerAttacks>().meleeDamage;
+
+            float rawDamage = baseDamage - stats.PhysicalDefence.Value;
+
+            float damage = Mathf.Clamp(rawDamage, 1, baseDamage);
+
+            aiHealth -= damage;
         }
         
         if(other.gameObject.tag == "Ranged")

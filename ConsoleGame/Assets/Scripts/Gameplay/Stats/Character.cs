@@ -58,7 +58,7 @@ public class Character : MonoBehaviour
         MagicDefence.baseValue = 10 + (1 * Vitality) + (3 * Intelligence);
         AttackSpeed.baseValue = 1 + (0.05f * Dexterity);
         MeleeDamage.baseValue = 20 + (5 * Strength) + (2 * Dexterity);
-        RangedDamage.baseValue = 1 + (5 * Dexterity) + (2 * Strength);
+        RangedDamage.baseValue = 10 + (5 * Dexterity) + (2 * Strength);
         MagicDamage.baseValue = 15 + (6 * Intelligence);
 
         PlayerHealth.maxHealth = Health.Value;
