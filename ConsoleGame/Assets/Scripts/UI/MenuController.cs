@@ -41,7 +41,6 @@ public class MenuController : MonoBehaviour
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
-            optionsMenu.SetActive(false);
         }
     }
 
