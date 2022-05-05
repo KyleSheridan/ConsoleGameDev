@@ -36,22 +36,45 @@ namespace FMODUnity
         }
 
         public override string DisplayName { get { return "PS4"; } }
-        public override void DeclareUnityMappings(Settings settings)
+        public override void DeclareRuntimePlatforms(Settings settings)
         {
             settings.DeclareRuntimePlatform(RuntimePlatform.PS4, this);
-
-#if UNITY_EDITOR
-            settings.DeclareBuildTarget(BuildTarget.PS4, this);
-#endif
         }
 
 #if UNITY_EDITOR
+        public override IEnumerable<BuildTarget> GetBuildTargets()
+        {
+            yield return BuildTarget.PS4;
+        }
+
         public override Legacy.Platform LegacyIdentifier { get { return Legacy.Platform.PS4; } }
 
-        protected override IEnumerable<string> GetRelativeBinaryPaths(BuildTarget buildTarget, bool allVariants, string suffix)
+        protected override BinaryAssetFolderInfo GetBinaryAssetFolder(BuildTarget buildTarget)
         {
-            yield return string.Format("ps4/libfmod{0}.prx", suffix);
-            yield return string.Format("ps4/libfmodstudio{0}.prx", suffix);
+            return new BinaryAssetFolderInfo("ps4", "Plugins/PS4");
+        }
+
+        protected override IEnumerable<FileRecord> GetBinaryFiles(BuildTarget buildTarget, bool allVariants, string suffix)
+        {
+            yield return new FileRecord(string.Format("libfmod{0}.prx", suffix));
+            yield return new FileRecord(string.Format("libfmodstudio{0}.prx", suffix));
+        }
+
+        protected override IEnumerable<FileRecord> GetOptionalBinaryFiles(BuildTarget buildTarget, bool allVariants)
+        {
+            yield return new FileRecord("libresonanceaudio.prx");
+        }
+
+        protected override IEnumerable<FileRecord> GetSourceFiles()
+        {
+            yield return new FileRecord("fmod_ps4.cs");
+        }
+
+        protected override IEnumerable<string> GetObsoleteFiles()
+        {
+            // resonanceaudio.prx
+            yield return "lib/ps4/resonanceaudio.prx";
+            yield return "lib/ps4/libresonanceaudio.prx";
         }
 #endif
 

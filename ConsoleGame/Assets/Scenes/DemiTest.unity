@@ -606,30 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a32fe4714d85d4f812cab349265a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  m_CurrentWaypointIndex: 0
-  player: {fileID: 0}
-  Anim: {fileID: 0}
-  navMeshAgent: {fileID: 0}
-  startWaitTime: 4
-  timeToRotate: 2
-  speedWalk: 6
-  speedRun: 9
-  viewRadius: 15
-  viewAngle: 90
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 128
-  playerLastPosition: {x: 0, y: 0, z: 0}
-  m_PlayerPosition: {x: 0, y: 0, z: 0}
-  m_WaitTime: 0
-  m_TimeToRotate: 0
-  m_PlayerInRange: 0
-  m_IsPatrol: 0
-  m_CaughtPlayer: 0
 --- !u!136 &1835428210
 CapsuleCollider:
   m_ObjectHideFlags: 0

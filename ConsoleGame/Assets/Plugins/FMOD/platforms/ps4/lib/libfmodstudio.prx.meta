@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c47c483c60f7021409999c379d0b866c
+guid: 31540b0acd2ddcb41bc75962c1980e61
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -25,7 +25,7 @@ PluginImporter:
   - first:
       PS4: PS4
     second:
-      enabled: 1
+      enabled: 0
       settings: {}
   userData: 
   assetBundleName: 
