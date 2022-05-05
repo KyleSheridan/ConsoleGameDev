@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bbeecfd9-6d1e-4a40-8df8-edea169273aa}">
+		<property name="assetPath">
+			<value>PlayerSwing5.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.98399999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{84ec7b10-3a43-46fb-b140-8512b65f5909}</destination>
+		</relationship>
+	</object>
+</objects>
