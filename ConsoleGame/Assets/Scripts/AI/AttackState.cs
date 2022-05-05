@@ -17,7 +17,8 @@ public class AttackState : State
 
     public override void Execute()
     {
-        throw new System.NotImplementedException();
+        //Play Attack anim
+        //Give damage to player health
     }
 
     public override void Exit()

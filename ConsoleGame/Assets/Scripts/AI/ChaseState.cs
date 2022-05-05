@@ -14,17 +14,20 @@ public class ChaseState : State
     public override void Enter()
     {
         Debug.Log("entering Chase state");
+        agent.playerLastPosition = Vector3.zero;
     }
 
     public override void Execute()
     {
-        agent.m_PlayerNear = false;
-        agent.playerLastPosition = Vector3.zero;
+        Debug.Log("updating Chase state");
+
+
 
         if (!agent.m_CaughtPlayer)
         {
             Move(agent.speedRun);
             agent.navMeshAgent.SetDestination(agent.m_PlayerPosition);
+            //Agent Animation Run
         }
 
         if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance)
@@ -32,7 +35,6 @@ public class ChaseState : State
             if (agent.m_WaitTime <= 0 && !agent.m_CaughtPlayer && Vector3.Distance(agent.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
             {
                 agent.m_IsPatrol = true;
-                agent.m_PlayerNear = false;
                 Move(agent.speedWalk);
                 agent.m_TimeToRotate = agent.timeToRotate;
                 agent.m_WaitTime = agent.startWaitTime;
@@ -45,24 +47,8 @@ public class ChaseState : State
                 {
                     Stop();
                     agent.m_WaitTime -= Time.deltaTime;
+                    agent.m_CaughtPlayer = true;
                 }
-            }
-        }
-
-        //In the state the agent calculates the opposite direction of the player till the sensor hit is false
-        Debug.Log("updating Chase state");
-        agent.navMeshAgent.SetDestination(player.position);
-        if (agent.navMeshAgent.remainingDistance <= agent.navMeshAgent.stoppingDistance)
-        {
-            if (agent.m_WaitTime <= 0)
-            {
-                //go to wander state
-            }
-
-            else
-            {
-                Stop();
-                agent.m_WaitTime -= Time.deltaTime;
             }
         }
 
@@ -70,7 +56,7 @@ public class ChaseState : State
 
     public override void Exit()
     {
-        Debug.Log("exiting Flee state");
+        Debug.Log("exiting Chase state");
     }
 
     void Move(float speed)

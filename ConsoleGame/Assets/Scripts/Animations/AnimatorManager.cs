@@ -20,7 +20,7 @@ public class AnimatorManager : MonoBehaviour
     {
         SetAnimParameters();
 
-        Debug.Log(animator.GetInteger("currentSequence"));
+        //Debug.Log(animator.GetInteger("currentSequence"));
     }
 
     private void SetAnimParameters()

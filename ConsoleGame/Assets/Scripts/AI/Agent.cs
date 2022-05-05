@@ -14,8 +14,6 @@ public class Agent : MonoBehaviour
 
     public Animator Anim;
 
-    public GameObject audio;
-
     public NavMeshAgent navMeshAgent;
 
     public float startWaitTime = 4f;
@@ -28,13 +26,15 @@ public class Agent : MonoBehaviour
     public LayerMask playerMask;
     public LayerMask obstacleMask;
 
+    public float agentDamage;
+    public float agentHealth;
+
     public Vector3 playerLastPosition = Vector3.zero;
     public Vector3 m_PlayerPosition;
 
     public float m_WaitTime;
     public float m_TimeToRotate;
     public bool m_PlayerInRange;
-    public bool m_PlayerNear;
     public bool m_IsPatrol;
     public bool m_CaughtPlayer;
 
@@ -63,19 +63,24 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         sm.Update();
-
-
 
         if(m_IsPatrol && (sm.currentState.GetType() != typeof(WanderState)))
         {
             sm.changeState(new WanderState(this));
         }
 
-        else if(!m_PlayerNear && (sm.currentState.GetType() != typeof(ChaseState)))
+        else if(!m_IsPatrol && !m_CaughtPlayer && (sm.currentState.GetType() != typeof(ChaseState)))
         {
             sm.changeState(new ChaseState(this, player));
         }
+
+        EnvironmentView();
+        /*else if(!m_IsPatrol && m_CaughtPlayer && (sm.currentState.GetType() != typeof(AttackState)))
+        {
+            sm.changeState(new AttackState(this));
+        }*/
     }
 
     public void Move(float speed)
@@ -88,12 +93,6 @@ public class Agent : MonoBehaviour
     {
         navMeshAgent.isStopped = true;
         navMeshAgent.speed = 0;
-    }
-
-    public void NextWaypoint()
-    {
-        m_CurrentWaypointIndex = Random.Range(0, waypoints.Length - 1);
-        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
     }
 
     void CaughtPlayer()
