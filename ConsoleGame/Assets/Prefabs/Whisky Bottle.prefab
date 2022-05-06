@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3257161776460677695}
   - component: {fileID: 5940126399410597004}
   - component: {fileID: 5067140666960073177}
+  - component: {fileID: 4258399900729994386}
   m_Layer: 0
   m_Name: Whisky Bottle
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 298500360993966737}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -120.750015, y: 289.2406, z: -202.85211}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,3 +130,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackedVersion: {fileID: 2227268736600584972, guid: 11e3ce30e93f49148b69560ae498b564, type: 3}
+--- !u!136 &4258399900729994386
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298500360993966737}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 6.8
+  m_Height: 36.13
+  m_Direction: 1
+  m_Center: {x: -0.0000009536743, y: 14.944909, z: -0.0000009536743}

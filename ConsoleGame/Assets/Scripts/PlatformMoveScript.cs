@@ -32,19 +32,16 @@ public class PlatformMoveScript : MonoBehaviour
 
                 else 
                 {
-                    if( i > 0)
-                    {
-                        nextPos = platformWayPoints[i-1].position;
-                    }
+                    nextPos = platformWayPoints[i-1].position;
                 }
             }
 
             Debug.Log(nextPos);
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
 
-            if (i > platformWayPoints.Length)
+            if (i >= platformWayPoints.Length - 1)
             {
-                i = 0;
+                //
             }
         }
 
