@@ -6,7 +6,9 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     public GameObject magic;
-    public Transform spawnPoint;
+    public GameObject bullet;
+    public Transform rangedSpawnPoint;
+    public Transform magicSpawnPoint;
 
     public float sequenceResetTime = 0.4f;
 
@@ -57,9 +59,18 @@ public class CombatManager : MonoBehaviour
         CalculateSequence();
     }
 
-    public void SpawnMagic()
+    public void SpawnMagic(float damage)
     {
-        Instantiate(magic, spawnPoint.position, spawnPoint.rotation);
+        MagicBall magicBall = Instantiate(magic, magicSpawnPoint.position, magicSpawnPoint.rotation).GetComponent<MagicBall>();
+
+        magicBall.damage = damage;
+    }
+
+    public void SpawnRanged(float damage)
+    {
+        RangedAttack ranged = Instantiate(bullet, rangedSpawnPoint.position, rangedSpawnPoint.rotation).GetComponent<RangedAttack>();
+
+        ranged.damage = damage;
     }
 
     void NextAttackInSequence(InputType type)

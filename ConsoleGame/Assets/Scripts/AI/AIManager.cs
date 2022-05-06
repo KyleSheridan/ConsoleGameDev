@@ -34,7 +34,7 @@ public class AIManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Melee")
         {
-            float baseDamage = other.gameObject.GetComponentInParent<PlayerAttacks>().meleeDamage;
+            float baseDamage = other.gameObject.GetComponentInParent<PlayerAnimEvents>().meleeDamage;
 
             float rawDamage = baseDamage - stats.PhysicalDefence.Value;
 
@@ -45,12 +45,28 @@ public class AIManager : MonoBehaviour
         
         if(other.gameObject.tag == "Ranged")
         {
-            aiHealth -= 0; //Value
+            float baseDamage = other.gameObject.GetComponent<RangedAttack>().damage;
+
+            float rawDamage = baseDamage - stats.MagicDefence.Value;
+
+            float damage = Mathf.Clamp(rawDamage, 1, baseDamage);
+
+            aiHealth -= damage;
+
+            Destroy(other.gameObject);
         }
         
         if(other.gameObject.tag == "Magic")
         {
-            aiHealth -= 0; //Value
+            float baseDamage = other.gameObject.GetComponent<RangedAttack>().damage;
+
+            float rawDamage = baseDamage - stats.MagicDefence.Value;
+
+            float damage = Mathf.Clamp(rawDamage, 1, baseDamage);
+
+            aiHealth -= damage;
+
+            Destroy(other.gameObject);
         }
     }
 
