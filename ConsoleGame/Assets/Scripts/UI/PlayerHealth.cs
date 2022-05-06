@@ -6,6 +6,8 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static bool isAlive = true;
+
     private float health;
     private float lerpTimer;
     public static float maxHealth = 100f;
@@ -17,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
         health = maxHealth;
     }
 
@@ -64,10 +67,13 @@ public class PlayerHealth : MonoBehaviour
         healthText.text = Mathf.Round(health) + "/" + Mathf.Round(maxHealth);
     }
 
-    public void TakeDamage( float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         lerpTimer = 0f;
+
+        if (health <= 0)
+            isAlive = false;
     }
 
     public void RestoreHealth(float healAmount)

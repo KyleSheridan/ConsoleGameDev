@@ -78,11 +78,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!PlayerHealth.isAlive) { return; }
+
         combat.UpdateCombat(InputManager.Instance.input);
     }
 
     private void FixedUpdate()
     {
+        if(!PlayerHealth.isAlive) { return; }
+
         CheckGrounded();
 
         PlayerMove();
@@ -261,6 +265,11 @@ public class PlayerController : MonoBehaviour
             float damage = Mathf.Clamp(rawDamage, 1, baseDamage);
 
             health.TakeDamage(damage);
+        }
+
+        if(other.gameObject.tag == "DeathBarrier")
+        {
+            PlayerHealth.isAlive = false;
         }
     }
 

@@ -40,5 +40,7 @@ public class AnimatorManager : MonoBehaviour
         animator.SetBool("isWallRunning", controller.wallRunning);
 
         animator.SetBool("wallRunMirror", controller.wallRunningOnLeft);
+
+        animator.SetBool("isAlive", PlayerHealth.isAlive);
     }
 }

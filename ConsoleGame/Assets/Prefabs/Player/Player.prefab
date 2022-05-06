@@ -216,7 +216,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   hitMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 51
   gravityMultiplier: 170
   gravityCurve: 20
   moveSpeed: 1200
@@ -274,10 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a19dee276e6e7545a64b8c9280c67b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startVitality: 1
-  startStrength: 1
-  startDexterity: 1
-  startIntelligence: 1
+  startVitality: 5
+  startStrength: 7
+  startDexterity: 4
+  startIntelligence: 4
   moveSpeed: 1200
   Health:
     baseValue: 0
