@@ -1,46 +1,47 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformMoveScript : MonoBehaviour
+public class PlatformMove : MonoBehaviour
 {
-    public Transform platform;
-
     public Transform[] platformWayPoints;
 
     public float speed = 5;
 
+    Vector3 nextPos;
+
     public int currentIndex = 0;
 
-    public void Awake()
+    private void Awake()
     {
-        platform.position = platformWayPoints[0].position;
+        transform.position = platformWayPoints[0].position;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if((platform.position - platformWayPoints[currentIndex].position).magnitude < 0.1f)
+        if ((transform.position - platformWayPoints[currentIndex].position).magnitude < 0.1f)
         {
             currentIndex++;
 
-            if(currentIndex >= platformWayPoints.Length)
+            if (currentIndex >= platformWayPoints.Length)
             {
                 currentIndex = 0;
             }
 
+            Vector3 direction = platformWayPoints[currentIndex].position - transform.position;
+
+            direction.Normalize();
+
+            Debug.Log(direction);
+
+            transform.Translate(direction * speed * Time.deltaTime);
         }
-        
-        Vector3 direction = platformWayPoints[currentIndex].position - platform.position;
-
-        direction.Normalize();
-
-        platform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(platform.position, platformWayPoints[currentIndex].position);
+        Gizmos.DrawLine(transform.position, nextPos);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,7 +49,7 @@ public class PlatformMoveScript : MonoBehaviour
         if (other.tag == "Player")
         {
             Transform player = other.transform.parent;
-            player.transform.parent = platform;
+            player.transform.parent = transform;
         }
     }
 

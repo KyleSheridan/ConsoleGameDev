@@ -94,11 +94,11 @@ public class PlayerController : MonoBehaviour
 
     void CheckGrounded()
     {
-        bool groundCheck = Physics.Raycast(transform.position, Vector3.down, groundCheckLength) ||
-                           Physics.Raycast(transform.position + (Vector3.right * (transform.localScale.x * 0.5f)), Vector3.down, groundCheckLength) ||
-                           Physics.Raycast(transform.position - (Vector3.right * (transform.localScale.x * 0.5f)), Vector3.down, groundCheckLength) ||
-                           Physics.Raycast(transform.position + (Vector3.forward * (transform.localScale.z * 0.5f)), Vector3.down, groundCheckLength) ||
-                           Physics.Raycast(transform.position - (Vector3.forward * (transform.localScale.z * 0.5f)), Vector3.down, groundCheckLength);
+        bool groundCheck = Physics.Raycast(transform.position, Vector3.down, groundCheckLength, hitMask) ||
+                           Physics.Raycast(transform.position + (Vector3.right * (transform.localScale.x * 0.5f)), Vector3.down, groundCheckLength, hitMask) ||
+                           Physics.Raycast(transform.position - (Vector3.right * (transform.localScale.x * 0.5f)), Vector3.down, groundCheckLength, hitMask) ||
+                           Physics.Raycast(transform.position + (Vector3.forward * (transform.localScale.z * 0.5f)), Vector3.down, groundCheckLength, hitMask) ||
+                           Physics.Raycast(transform.position - (Vector3.forward * (transform.localScale.z * 0.5f)), Vector3.down, groundCheckLength, hitMask);
 
         if (groundCheck)
         {
@@ -254,7 +254,6 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit!");
             float baseDamage = other.gameObject.GetComponentInParent<EnemyAnimEvents>().meleeDamage;
 
             float rawDamage = baseDamage - characterStats.PhysicalDefence.Value;
