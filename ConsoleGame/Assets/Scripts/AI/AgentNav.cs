@@ -57,7 +57,7 @@ public class AgentNav : MonoBehaviour
 
     public void SetNewRandomDestination()
     {
-        currentWaypointIndex = UnityEngine.Random.Range(0, waypoints.Length - 1);
+        currentWaypointIndex = UnityEngine.Random.Range(0, waypoints.Length);
         navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 }
