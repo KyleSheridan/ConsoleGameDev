@@ -26,34 +26,6 @@ MonoBehaviour:
   - Quick
   - Heavy
   Exists: 1
---- !u!114 &-8751505739467219508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/MenuMusic
-  m_EditorClassIdentifier: 
-  Path: event:/Music/MenuMusic
-  Guid:
-    Data1: -2140903631
-    Data2: 1112448213
-    Data3: -935227725
-    Data4: 1788853262
-  Banks:
-  - {fileID: -4518686957183584304}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 4146061299133915812}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-7936073532871602840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,10 +123,10 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637874420556743958
+  lastModified: 637874452197507067
   FileSizes:
   - Name: Desktop
-    Value: 1189760
+    Value: 2727680
   Exists: 1
 --- !u!114 &-3267033761322376774
 MonoBehaviour:
@@ -199,11 +171,38 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637874420556763939
+  lastModified: 637874452197527082
   FileSizes:
   - Name: Desktop
-    Value: 1206
+    Value: 1170
   Exists: 1
+--- !u!114 &-1715642597442179606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MainMenu
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMenu
+  Guid:
+    Data1: 78230029
+    Data2: 1281528100
+    Data3: 317142961
+    Data4: 1603251256
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 122448
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,17 +220,17 @@ MonoBehaviour:
   - {fileID: -4518686957183584304}
   EditorEvents:
   - {fileID: -6230593687872801712}
-  - {fileID: -8751505739467219508}
   - {fileID: -7936073532871602840}
   - {fileID: -4832689344118697013}
   - {fileID: -3267033761322376774}
   - {fileID: 2947056282607814082}
+  - {fileID: -1715642597442179606}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4518686957183584304}
   StringsBanks:
   - {fileID: -2883449034265477477}
-  cacheTime: 637874420556763939
+  cacheTime: 637874452197527082
   cacheVersion: 10
 --- !u!114 &2947056282607814082
 MonoBehaviour:
@@ -260,30 +259,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 30000
---- !u!114 &4146061299133915812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/MenuMusic/Menu
-  m_EditorClassIdentifier: 
-  Name: Menu
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 1103737894
-    data2: 194480036
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &5038089857449996149
 MonoBehaviour:
   m_ObjectHideFlags: 0

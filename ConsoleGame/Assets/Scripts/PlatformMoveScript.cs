@@ -6,6 +6,11 @@ public class PlatformMoveScript : MonoBehaviour
 {
     public Transform[] platformWayPoints;
 
+    public Transform preParent;
+
+    //public GameObject pl;
+
+
     public void Update()
     {
         for (int i =0; i< platformWayPoints.Length; i++)
@@ -35,7 +40,7 @@ public class PlatformMoveScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.transform.parent = null;
+            preParent = other.transform.parent;
         }
 
         if (other.tag == "Enemy")
