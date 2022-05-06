@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class PlatformMoveScript : MonoBehaviour
 {
     public Transform[] platformWayPoints;
+
+    public Transform[] platformWayPointsReversed;
 
     public Transform startPos;
 
@@ -17,13 +20,14 @@ public class PlatformMoveScript : MonoBehaviour
     public void Awake()
     {
         transform.position = startPos.position;
+
     }
 
     public void Update()
     {
-        for (int i =0; i< platformWayPoints.Length; i++)
+        for (int i = 0; i < platformWayPoints.Length; i++)
         {
-            if(transform.position == platformWayPoints[i].position)
+            if(transform.position == platformWayPoints[i].transform.position)
             {
                 if(i < platformWayPoints.Length - 1)
                 {
@@ -36,13 +40,8 @@ public class PlatformMoveScript : MonoBehaviour
                 }
             }
 
-            Debug.Log(nextPos);
+            Debug.Log("Index num is" + i);
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
-
-            if (i >= platformWayPoints.Length - 1)
-            {
-                //
-            }
         }
 
     }
