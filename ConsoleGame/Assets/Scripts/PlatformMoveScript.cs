@@ -6,33 +6,59 @@ public class PlatformMoveScript : MonoBehaviour
 {
     public Transform[] platformWayPoints;
 
-    public Transform preParent;
+    public Transform startPos;
 
-    //public GameObject pl;
+    public float speed;
 
+    Vector3 nextPos;
+
+    public GameObject player;
+
+    public void Awake()
+    {
+        transform.position = startPos.position;
+    }
 
     public void Update()
     {
         for (int i =0; i< platformWayPoints.Length; i++)
         {
-            this.transform.Translate(platformWayPoints[i].position); 
-            if (i >= platformWayPoints.Length)
+            if(transform.position == platformWayPoints[i].position)
+            {
+                if(i < platformWayPoints.Length - 1)
+                {
+                    nextPos = platformWayPoints[i+1].position;
+                }
+
+                else 
+                {
+                    if( i > 0)
+                    {
+                        nextPos = platformWayPoints[i-1].position;
+                    }
+                }
+            }
+
+            Debug.Log(nextPos);
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+
+            if (i > platformWayPoints.Length)
             {
                 i = 0;
             }
         }
 
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, nextPos);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            other.transform.parent = transform;
-        }
-        
-        if (other.tag == "Enemy")
-        {
-            other.transform.parent = transform;
+            player.transform.parent = transform;
         }
     }
 
@@ -40,12 +66,7 @@ public class PlatformMoveScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            preParent = other.transform.parent;
-        }
-
-        if (other.tag == "Enemy")
-        {
-            other.transform.parent = null;
+            player.transform.parent = null;
         }
     }
 }
