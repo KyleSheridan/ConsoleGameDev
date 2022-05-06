@@ -49,8 +49,8 @@ public class AgentNav : MonoBehaviour
             else
             {
                 navMeshAgent.speed = 0;
-                timerCount -= Time.deltaTime;
                 wandering = false;
+                timerCount -= Time.deltaTime;
             }
         }
     }
