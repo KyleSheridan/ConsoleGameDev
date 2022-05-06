@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public AudioMixer musicAudioMixer;
-    public AudioMixer SFXAudioMixer;
 
     public Dropdown resolutionDropdown;
 
@@ -37,16 +34,6 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-    }
-
-    public void SetMusicVolume(float volume)
-    {
-        musicAudioMixer.SetFloat("Volume", volume);
-    }
-    
-    public void SetSFXVolume(float volume)
-    {
-        SFXAudioMixer.SetFloat("Volume", volume);
     }
 
     public void SetResolution(int resolutionIndex)

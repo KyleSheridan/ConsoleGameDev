@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class PlatformMoveScript : MonoBehaviour
 {
+    public Transform[] platformWayPoints;
+
+    public void Update()
+    {
+        for (int i =0; i< platformWayPoints.Length; i++)
+        {
+            this.transform.Translate(platformWayPoints[i].position); 
+            if (i >= platformWayPoints.Length)
+            {
+                i = 0;
+            }
+        }
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

@@ -20,9 +20,12 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Options"))
+        if(pauseMenu != null)
         {
-            PauseUnpause();
+            if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Options"))
+            {
+                PauseUnpause();
+            }
         }
     }
 

@@ -7892,7 +7892,7 @@ MonoBehaviour:
       Data2: 1231333292
       Data3: -134126914
       Data4: -1620872441
-    Path: event:/Ambience
+    Path: event:/SFX/Ambience
   Event: 
   PlayEvent: 1
   StopEvent: 2
@@ -8817,11 +8817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 538162714841809397, guid: 4f5f4953897755e4c89cc7c5e90bed40, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000005213717
+      value: 0.000005196828
       objectReference: {fileID: 0}
     - target: {fileID: 538162714841809397, guid: 4f5f4953897755e4c89cc7c5e90bed40, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000010587017
+      value: -0.0000010552831
       objectReference: {fileID: 0}
     - target: {fileID: 538162714841809397, guid: 4f5f4953897755e4c89cc7c5e90bed40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8846,11 +8846,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3377488307831900271, guid: 8d8c39ff8f686cb46a6ed7479173a257, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000005213716
+      value: 0.0000051968536
       objectReference: {fileID: 0}
     - target: {fileID: 3377488307831900271, guid: 8d8c39ff8f686cb46a6ed7479173a257, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000010587016
+      value: -0.0000010552775
       objectReference: {fileID: 0}
     - target: {fileID: 3377488308047029550, guid: 8d8c39ff8f686cb46a6ed7479173a257, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8862,7 +8862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377488309031181255, guid: 8d8c39ff8f686cb46a6ed7479173a257, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18116459
+      value: 0.1811646
       objectReference: {fileID: 0}
     - target: {fileID: 3377488309052101384, guid: 8d8c39ff8f686cb46a6ed7479173a257, type: 3}
       propertyPath: m_RootOrder

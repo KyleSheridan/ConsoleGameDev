@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03480376, g: 0.027066924, b: 0.016064623, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1363,7 +1363,7 @@ MonoBehaviour:
       Data2: 1231333292
       Data3: -134126914
       Data4: -1620872441
-    Path: event:/Ambience
+    Path: event:/SFX/Ambience
   Event: 
   PlayEvent: 1
   StopEvent: 2

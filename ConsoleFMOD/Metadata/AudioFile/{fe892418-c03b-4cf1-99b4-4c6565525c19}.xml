@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fe892418-c03b-4cf1-99b4-4c6565525c19}">
+		<property name="assetPath">
+			<value>LavaBoil.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>60.147006802721087</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{84ec7b10-3a43-46fb-b140-8512b65f5909}</destination>
+		</relationship>
+	</object>
+</objects>
