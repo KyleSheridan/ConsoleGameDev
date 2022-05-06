@@ -35,7 +35,6 @@ public class Destructible : MonoBehaviour
     {
         Instantiate(crackedVersion, transform.position, transform.rotation);
         Destroy(gameObject);
-        DestroyWait(4f);
     }
 
     IEnumerator DestroyWait(float waitTime)
