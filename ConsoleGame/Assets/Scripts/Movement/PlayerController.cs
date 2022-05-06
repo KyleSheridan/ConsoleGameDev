@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public CombatManager combat { get; private set; }
     public Character characterStats { get; private set; }
 
+    public PlayerHealth health;
+
     public Transform cam;
 
     public LayerMask hitMask;
@@ -245,6 +247,21 @@ public class PlayerController : MonoBehaviour
                 rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
                 jumping = true;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Hit!");
+            float baseDamage = other.gameObject.GetComponentInParent<EnemyAnimEvents>().meleeDamage;
+
+            float rawDamage = baseDamage - characterStats.PhysicalDefence.Value;
+
+            float damage = Mathf.Clamp(rawDamage, 1, baseDamage);
+
+            health.TakeDamage(damage);
         }
     }
 

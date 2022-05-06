@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fd547511675ce4385e7aca5d8a4fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 7660411908257268967}
   cam: {fileID: 0}
   hitMask:
     serializedVersion: 2
@@ -665,7 +666,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8067830005960084411}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.1
   m_Height: 0.65
   m_Direction: 2

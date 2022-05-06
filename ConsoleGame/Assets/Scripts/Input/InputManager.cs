@@ -53,7 +53,6 @@ public class InputManager : MonoBehaviour
 
         if (axisName == "C_CameraX")
         {
-            Debug.Log(camX);
             return camX;
         }
         else if (axisName == "C_CameraY")

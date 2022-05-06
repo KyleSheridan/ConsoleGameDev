@@ -40,15 +40,6 @@ public class Character : MonoBehaviour
         MovementSpeed.baseValue = moveSpeed;
 
         UpdateStats();
-
-        Debug.Log(Health.baseValue);
-        Debug.Log(PhysicalDefence.baseValue);
-        Debug.Log(MagicDefence.baseValue);
-        Debug.Log(MovementSpeed.baseValue);
-        Debug.Log(AttackSpeed.baseValue);
-        Debug.Log(MeleeDamage.baseValue);
-        Debug.Log(RangedDamage.baseValue);
-        Debug.Log(MagicDamage.baseValue);
     }
 
     private void UpdateStats()
@@ -57,11 +48,9 @@ public class Character : MonoBehaviour
         PhysicalDefence.baseValue = 15 + (3 * Vitality) + (2 * Strength);
         MagicDefence.baseValue = 10 + (1 * Vitality) + (3 * Intelligence);
         AttackSpeed.baseValue = 1 + (0.05f * Dexterity);
-        MeleeDamage.baseValue = 20 + (5 * Strength) + (2 * Dexterity);
-        RangedDamage.baseValue = 10 + (5 * Dexterity) + (2 * Strength);
-        MagicDamage.baseValue = 15 + (6 * Intelligence);
-
-        PlayerHealth.maxHealth = Health.Value;
+        MeleeDamage.baseValue = 50 + (7 * Strength) + (3 * Dexterity);
+        RangedDamage.baseValue = 20 + (7 * Dexterity) + (2 * Strength);
+        MagicDamage.baseValue = 37 + (9 * Intelligence);
     }
 
     public void IncreaseVitality()

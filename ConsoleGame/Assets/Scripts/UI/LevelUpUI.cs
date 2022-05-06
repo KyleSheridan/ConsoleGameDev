@@ -31,6 +31,11 @@ public class LevelUpUI : MonoBehaviour
 
     private int pointsVal;
 
+    private void Start()
+    {
+        PlayerHealth.maxHealth = character.Health.Value;
+    }
+
     void Update()
     {
         if (InputManager.Instance.input.LevelUp)
