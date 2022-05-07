@@ -154,7 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiHealth: 50
-  spawnableObjects: []
+  spawnableObjects:
+  - {fileID: 6252399522239300094, guid: 70920ef923f417d40b8eb51b070450be, type: 3}
+  - {fileID: 4816419898095475728, guid: b73f9bfa23d69f54295dd353d329d10b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   dead: 0
 --- !u!114 &7712849074263422663
 MonoBehaviour:
