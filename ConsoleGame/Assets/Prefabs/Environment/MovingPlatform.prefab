@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1452608437937573106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c909a4387351a4495e3bc1911376a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5913e415b1bc1f542b5e2062cbfc7609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1452608438554734717}
@@ -63,7 +63,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 3
-  currentIndex: 0
 --- !u!1 &1452608438554734704
 GameObject:
   m_ObjectHideFlags: 0

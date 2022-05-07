@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
+    public Transform platform;
+
     public Transform[] platformWayPoints;
 
     public float speed = 5;
 
     Vector3 nextPos;
 
-    public int currentIndex = 0;
+    int currentIndex = 0;
 
     private void Awake()
     {
-        transform.position = platformWayPoints[0].position;
+        platform.position = platformWayPoints[0].position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position - platformWayPoints[currentIndex].position).magnitude < 0.1f)
+        if ((platform.position - platformWayPoints[currentIndex].position).magnitude < 0.1f)
         {
             currentIndex++;
 
@@ -29,19 +31,17 @@ public class PlatformMove : MonoBehaviour
                 currentIndex = 0;
             }
 
-            Vector3 direction = platformWayPoints[currentIndex].position - transform.position;
-
-            direction.Normalize();
-
-            Debug.Log(direction);
-
-            transform.Translate(direction * speed * Time.deltaTime);
         }
+        Vector3 direction = platformWayPoints[currentIndex].position - platform.position;
+
+        direction.Normalize();
+
+        platform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, nextPos);
+        Gizmos.DrawLine(platform.position, nextPos);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,7 +49,7 @@ public class PlatformMove : MonoBehaviour
         if (other.tag == "Player")
         {
             Transform player = other.transform.parent;
-            player.transform.parent = transform;
+            player.transform.parent = platform;
         }
     }
 
@@ -58,7 +58,7 @@ public class PlatformMove : MonoBehaviour
         if (other.tag == "Player")
         {
             Transform player = other.transform.parent;
-            player.transform.parent = transform;
+            player.transform.parent = null;
         }
     }
 }
