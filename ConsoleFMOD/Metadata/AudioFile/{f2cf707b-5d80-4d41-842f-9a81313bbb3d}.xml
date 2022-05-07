@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f2cf707b-5d80-4d41-842f-9a81313bbb3d}">
+		<property name="assetPath">
+			<value>ZombieDead.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.5661451247165532</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{84ec7b10-3a43-46fb-b140-8512b65f5909}</destination>
+		</relationship>
+	</object>
+</objects>
