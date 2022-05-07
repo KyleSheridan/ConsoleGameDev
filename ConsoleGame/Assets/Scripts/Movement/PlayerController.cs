@@ -277,7 +277,6 @@ public class PlayerController : MonoBehaviour
 
         if(other.gameObject.tag == "DeathBarrier")
         {
-            Debug.Log("help");
             PlayerHealth.isAlive = false;
         }
     }
