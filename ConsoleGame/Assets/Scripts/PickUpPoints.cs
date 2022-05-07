@@ -9,7 +9,9 @@ public class PickUpPoints : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            //XP += xpPoints
+            LevelSystem playerXP = other.gameObject.GetComponentInParent<LevelSystem>();
+
+            playerXP.GainExperienceFlatRate(xpPoints);
             Destroy(gameObject);
         }
     }

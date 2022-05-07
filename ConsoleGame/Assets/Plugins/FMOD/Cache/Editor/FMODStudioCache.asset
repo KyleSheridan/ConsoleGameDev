@@ -53,6 +53,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 35683
+--- !u!114 &-6885920054515997090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ZombieDIe
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ZombieDIe
+  Guid:
+    Data1: 876224250
+    Data2: 1219157639
+    Data3: 1915150513
+    Data4: -2075055132
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3566
 --- !u!114 &-6684630720091132188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,10 +175,10 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637875083303812216
+  lastModified: 637875213767058541
   FileSizes:
   - Name: Desktop
-    Value: 2832416
+    Value: 2959520
   Exists: 1
 --- !u!114 &-4484056730535383484
 MonoBehaviour:
@@ -223,10 +250,10 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637875083303832208
+  lastModified: 637875213767068544
   FileSizes:
   - Name: Desktop
-    Value: 1304
+    Value: 1488
   Exists: 1
 --- !u!114 &-1715642597442179606
 MonoBehaviour:
@@ -255,6 +282,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 112448
+--- !u!114 &-868194263295871860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/GameOver
+  m_EditorClassIdentifier: 
+  Path: event:/Music/GameOver
+  Guid:
+    Data1: -575831985
+    Data2: 1117553590
+    Data3: 472773046
+    Data4: -1812028383
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1852
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,12 +334,16 @@ MonoBehaviour:
   - {fileID: 2092244243269285635}
   - {fileID: -4484056730535383484}
   - {fileID: 2635443490030699118}
+  - {fileID: -868194263295871860}
+  - {fileID: 5511690625120076086}
+  - {fileID: -6885920054515997090}
+  - {fileID: 3658582215963386673}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4518686957183584304}
   StringsBanks:
   - {fileID: -2883449034265477477}
-  cacheTime: 637875083303832208
+  cacheTime: 637875213767068544
   cacheVersion: 10
 --- !u!114 &2092244243269285635
 MonoBehaviour:
@@ -369,6 +427,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 30000
+--- !u!114 &3658582215963386673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ZombieGroan
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ZombieGroan
+  Guid:
+    Data1: 1810657020
+    Data2: 1192220515
+    Data3: -381118040
+    Data4: -362912029
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
 --- !u!114 &5038089857449996149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +479,30 @@ MonoBehaviour:
   Labels:
   - Default
   Exists: 1
+--- !u!114 &5511690625120076086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/ZombieGrowl
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/ZombieGrowl
+  Guid:
+    Data1: -74072688
+    Data2: 1174156451
+    Data3: 1443642540
+    Data4: -266769254
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1529
