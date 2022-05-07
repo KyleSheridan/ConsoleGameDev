@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     [Range(0, 50)]
     public int jumpBufferFrames = 5;
 
+    [Header("Particles")]
+    public GameObject jumpParticle;
+    public Transform jumpPaticleSpawnPoint;
+
     public bool grounded { get; private set; }
     float groundCheckLength;
 
@@ -53,6 +57,8 @@ public class PlayerController : MonoBehaviour
     int jumpBufferCountdown;
 
     float turnSmoothVelocity;
+
+    bool particleCanSpawn = true;
 
     private void Awake()
     {
@@ -246,6 +252,8 @@ public class PlayerController : MonoBehaviour
                 {
                     doubleJumpActive = false;
                     ResetJumpHeightBuffer();
+                    GameObject particle = Instantiate(jumpParticle, jumpPaticleSpawnPoint.position, jumpPaticleSpawnPoint.rotation);
+                    Destroy(particle, 1f);
                 }
 
                 rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
