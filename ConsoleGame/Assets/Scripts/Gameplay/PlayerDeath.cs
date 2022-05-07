@@ -7,6 +7,8 @@ public class PlayerDeath : MonoBehaviour
 {
     public GameObject deathScreen;
 
+    public GameObject playerUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,9 @@ public class PlayerDeath : MonoBehaviour
     {
         if(PlayerHealth.isAlive) { return; }
 
+        Time.timeScale = 0f;
         deathScreen.SetActive(true);
+        playerUI.SetActive(false);
 
         if (InputManager.Instance.input.Jump)
         {

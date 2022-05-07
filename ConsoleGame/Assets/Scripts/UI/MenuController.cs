@@ -8,6 +8,8 @@ public class MenuController : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public GameObject optionsMenu;
+
     public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton, creditsFirstButton, creditsClosedButton;
 
     public GameObject playerUI;
@@ -24,7 +26,10 @@ public class MenuController : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Options"))
             {
-                PauseUnpause();
+                if (!optionsMenu.activeInHierarchy)
+                {
+                    PauseUnpause();
+                }
             }
         }
     }
