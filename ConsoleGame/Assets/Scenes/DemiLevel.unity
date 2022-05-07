@@ -428,11 +428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.6
+      value: 56.5
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 278.7
+      value: 291.7
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1038,7 +1038,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42818
+  m_Name: pb_Mesh108876
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1347,6 +1347,62 @@ PrefabInstance:
     - target: {fileID: 7146306970936182519, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1669774730}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1669774729}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartFromCheckpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146306971273487412, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7146306971273487413, guid: 76bdd7305574bf8429dbfa453dd6b3bd, type: 3}
       propertyPath: m_RootOrder
@@ -7362,7 +7418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.7
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7611,6 +7667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {x: 92, y: 9, z: -79}
+  currentLevel: 
 --- !u!4 &1133480685
 Transform:
   m_ObjectHideFlags: 0
@@ -8597,7 +8654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.9
+      value: 38.4
       objectReference: {fileID: 0}
     - target: {fileID: 394851461114754389, guid: 7231bcc04306a6c4a9dbfe66c7514d0a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9535,6 +9592,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: HubArea
+  loadingScreen: {fileID: 0}
+  progressSlider: {fileID: 0}
+  progressText: {fileID: 0}
 --- !u!1 &1439377177
 GameObject:
   m_ObjectHideFlags: 0
@@ -12381,6 +12441,10 @@ PrefabInstance:
       propertyPath: optionsMenu
       value: 
       objectReference: {fileID: 40891414}
+    - target: {fileID: 6522745122228436215, guid: c54e9075d8833144486233e02de3af3b, type: 3}
+      propertyPath: checkManager
+      value: 
+      objectReference: {fileID: 1133480683}
     - target: {fileID: 6522745122228436215, guid: c54e9075d8833144486233e02de3af3b, type: 3}
       propertyPath: pauseFirstButton
       value: 
@@ -16731,7 +16795,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42602
+  m_Name: pb_Mesh108660
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17109,7 +17173,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42556
+  m_Name: pb_Mesh108614
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

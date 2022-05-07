@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class MenuController : MonoBehaviour
@@ -9,6 +10,8 @@ public class MenuController : MonoBehaviour
     public GameObject pauseMenu;
 
     public GameObject optionsMenu;
+
+    public GameObject checkManager;
 
     public GameObject pauseFirstButton, optionsFirstButton, optionsClosedButton, creditsFirstButton, creditsClosedButton;
 
@@ -83,5 +86,12 @@ public class MenuController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(creditsClosedButton);
+    }
+
+    public void RestartFromCheckpoint()
+    {
+        Destroy(checkManager);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
