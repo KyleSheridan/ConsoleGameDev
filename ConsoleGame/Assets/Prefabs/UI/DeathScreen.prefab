@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 4461299980053919212}
   - component: {fileID: 4461299980053919203}
   - component: {fileID: 4461299980053919202}
+  - component: {fileID: 4852130428898777605}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -314,6 +315,36 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4852130428898777605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461299980053919201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -575831985
+      Data2: 1117553590
+      Data3: 472773046
+      Data4: -1812028383
+    Path: event:/Music/GameOver
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4461299980227421604
 GameObject:
   m_ObjectHideFlags: 0

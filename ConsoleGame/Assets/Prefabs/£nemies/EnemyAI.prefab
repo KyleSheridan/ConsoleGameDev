@@ -90,7 +90,7 @@ MonoBehaviour:
   player: {fileID: 0}
   agentNav: {fileID: 0}
   attackDistance: 5
-  viewRadius: 50
+  viewRadius: 20
   viewAngle: 90
   playerMask:
     serializedVersion: 2
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiHealth: 50
+  spawnableObjects: []
   dead: 0
 --- !u!114 &7712849074263422663
 MonoBehaviour:
@@ -1188,6 +1189,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &385938282153203871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487320289102790074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f02ee752eb9cb4393b8855bade6410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2874092915741816860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,18 +1216,6 @@ MonoBehaviour:
   stats: {fileID: 7712849074263422663}
   meleeColLeft: {fileID: 1757930241251572209}
   meleeColRight: {fileID: 1757930241945050850}
---- !u!114 &385938282153203871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487320289102790074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f02ee752eb9cb4393b8855bade6410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2182151918642605502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8778109796107686571, guid: 6273aa5b46bcbea4583d28be459cd9bd, type: 3}

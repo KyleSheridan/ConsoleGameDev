@@ -62,7 +62,9 @@ MonoBehaviour:
   platformWayPoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 3
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 10
 --- !u!1 &1452608438554734704
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +128,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: e2f7604a5a0ff1b4fb27a15acf5851dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
