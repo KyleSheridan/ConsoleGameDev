@@ -27,6 +27,7 @@ public class PlayerDeath : MonoBehaviour
         if (InputManager.Instance.input.Jump)
         {
             Application.LoadLevel(Application.loadedLevel);
+            Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
