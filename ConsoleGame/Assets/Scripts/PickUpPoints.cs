@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpPoints : MonoBehaviour
 {
-    float xpPoints = 30f;
+    public float xpPoints = 30f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
