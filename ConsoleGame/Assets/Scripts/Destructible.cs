@@ -26,11 +26,13 @@ public class Destructible : MonoBehaviour
         if (other.gameObject.tag == "Ranged")
         {
             Break();
+            Destroy(gameObject);
         }
 
         if (other.gameObject.tag == "Magic")
         {
-            Break();
+            Break(); 
+            Destroy(gameObject);
         }
     }
     private void Break()

@@ -91,13 +91,13 @@ MonoBehaviour:
   agentNav: {fileID: 0}
   attackDistance: 5
   viewRadius: 20
-  viewAngle: 90
+  viewAngle: 120
   playerMask:
     serializedVersion: 2
     m_Bits: 64
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 896
   m_IsPatrol: 0
   chaseDistance: 20
   chasing: 0
