@@ -78,6 +78,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1852
+--- !u!114 &-7275149096819828836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gunshot
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gunshot
+  Guid:
+    Data1: -1758803232
+    Data2: 1312829023
+    Data3: -1469899841
+    Data4: -35645499
+  Banks:
+  - {fileID: 6453360859707940614}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1933
 --- !u!114 &-6118727572956227106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +188,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4239055189215487762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/MagicAttack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/MagicAttack
+  Guid:
+    Data1: 1483894605
+    Data2: 1230774273
+    Data3: 1164246663
+    Data4: 1473478063
+  Banks:
+  - {fileID: 6453360859707940614}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3481
 --- !u!114 &-3831203695664707067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,12 +326,14 @@ MonoBehaviour:
   - {fileID: 529841608882126036}
   - {fileID: 5312486319195964062}
   - {fileID: 2756556437989324357}
+  - {fileID: -4239055189215487762}
+  - {fileID: -7275149096819828836}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6453360859707940614}
   StringsBanks:
   - {fileID: 7349670921287246600}
-  cacheTime: 637875544715204071
+  cacheTime: 637875630726493606
   cacheVersion: 10
 --- !u!114 &529841608882126036
 MonoBehaviour:
@@ -481,10 +537,10 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637875544715204071
+  lastModified: 637875630726468596
   FileSizes:
   - Name: Desktop
-    Value: 2959520
+    Value: 3027520
   Exists: 1
 --- !u!114 &7349670921287246600
 MonoBehaviour:
@@ -501,8 +557,8 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637875213767068544
+  lastModified: 637875630726493606
   FileSizes:
   - Name: Desktop
-    Value: 1488
+    Value: 1568
   Exists: 1
