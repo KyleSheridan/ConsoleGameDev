@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4810221211116232562}
   - component: {fileID: 4802108210968375920}
   - component: {fileID: 4792805259104595766}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4818455667505587086}
   - component: {fileID: 4802220778539547020}
   - component: {fileID: 4791830016574970556}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4818695370052841006}
   - component: {fileID: 4802079622130692574}
   - component: {fileID: 4792888061721865970}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4810072771080701068}
   - component: {fileID: 4803579592476846414}
   - component: {fileID: 4792475176736461072}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4818704972655224592}
   - component: {fileID: 4850708440217933750}
   - component: {fileID: 4814837741670464914}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Point light (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 4818378846886498132}
   - component: {fileID: 4803512626304720244}
   - component: {fileID: 4792860806839038076}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 4809851487678087306}
   - component: {fileID: 4802201001531302492}
   - component: {fileID: 4792918255442839298}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 4818829204138196106}
   - component: {fileID: 4818829204138196212}
   - component: {fileID: 4818829204138196213}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: HealthPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 4810092874328309492}
   - component: {fileID: 4803587039745935050}
   - component: {fileID: 4793109096424874228}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: BetterCrystal01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
