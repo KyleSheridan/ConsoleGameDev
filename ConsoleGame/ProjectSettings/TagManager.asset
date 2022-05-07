@@ -9,6 +9,8 @@ TagManager:
   - Magic
   - Enemy
   - DeathBarrier
+  - HealthPickUp
+  - XPPickUp
   layers:
   - Default
   - TransparentFX

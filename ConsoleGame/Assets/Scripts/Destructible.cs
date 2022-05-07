@@ -6,6 +6,8 @@ public class Destructible : MonoBehaviour
 {
     public GameObject crackedVersion;
 
+    public GameObject[] spawnableObjects;
+
     private void Start()
     {
 
@@ -34,12 +36,14 @@ public class Destructible : MonoBehaviour
     private void Break()
     {
         Instantiate(crackedVersion, transform.position, transform.rotation);
+        int randNum = Random.Range(0, spawnableObjects.Length);
+        Debug.Log("This is my state oo" + randNum);
+        if (spawnableObjects[randNum] != null)
+        {
+            Instantiate(spawnableObjects[randNum], transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 
-    IEnumerator DestroyWait(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        Destroy(crackedVersion);
-    }
+
 }

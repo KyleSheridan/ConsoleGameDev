@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1559100552130423222}
   - component: {fileID: 1445407058726774141}
+  - component: {fileID: 8676477581758117113}
   m_Layer: 0
   m_Name: Whisky Bottle Cracked
   m_TagString: Untagged
@@ -64,6 +65,18 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 20
   OverrideMaxDistance: 20
+--- !u!114 &8676477581758117113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227268736600584972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba20cc6c73d158742b93c89886616406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5281060233000184881
 GameObject:
   m_ObjectHideFlags: 0

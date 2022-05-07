@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class AIManager : MonoBehaviour
 {
     public float aiHealth;
+
+    public GameObject[] spawnableObjects;
     public bool dead = false;
 
     AgentChase agentChase;
@@ -14,6 +16,7 @@ public class AIManager : MonoBehaviour
     NavMeshAgent navMesh;
 
     Character stats;
+    private bool spawnable;
 
     private void Start()
     {
@@ -24,6 +27,7 @@ public class AIManager : MonoBehaviour
         stats = GetComponent<Character>();
 
         aiHealth = stats.Health.Value;
+        spawnable = true;
     }
     // Update is called once per frame
     void Update()
@@ -72,20 +76,25 @@ public class AIManager : MonoBehaviour
 
     public void Die()
     {
-        if(aiHealth <= 0)
+        if (aiHealth <= 0)
         {
             dead = true;
             agentChase.enabled = false;
             agentNav.enabled = false;
             navMesh.isStopped = true;
-            StartCoroutine(DestroyWait(6f));
 
-            
+            StartCoroutine(DestroyWait(6f));
         }
     }
 
     IEnumerator DestroyWait(float waitTime)
     {
+        int randNum = UnityEngine.Random.Range(0, spawnableObjects.Length);
+        if (spawnableObjects[randNum] != null && spawnable)
+        {
+            spawnable = false;
+            Instantiate(spawnableObjects[randNum], transform.position, transform.rotation);
+        }
         yield return new WaitForSeconds(waitTime);
         Destroy(gameObject);
     }

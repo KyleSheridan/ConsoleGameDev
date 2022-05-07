@@ -1850,6 +1850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8896531275505355121}
   - component: {fileID: 8609762635022194279}
+  - component: {fileID: -4211349993068227100}
   m_Layer: 0
   m_Name: Wooden Crate Cracked
   m_TagString: Untagged
@@ -1922,6 +1923,18 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 40
   OverrideMaxDistance: 40
+--- !u!114 &-4211349993068227100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087625606958027723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba20cc6c73d158742b93c89886616406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8205514820988608862
 GameObject:
   m_ObjectHideFlags: 0
