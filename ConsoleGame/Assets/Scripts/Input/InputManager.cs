@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
 
     public InputData input { get; private set; }
 
-    public
     // all inputsources that can control the player
     IInput[] allInputs;
 

@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isAlive = true;
         health = maxHealth;
+        transform.position = CheckpointManager.Instance.spawnPoint;
     }
 
     // Update is called once per frame
