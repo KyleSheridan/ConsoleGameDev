@@ -36,7 +36,7 @@ public class AnimationSounds : MonoBehaviour
 
     void PlayEnemyFootstep()
     {
-        footstep = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Footsteps");
+        footstep = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/EnemyFootsteps");
         footstep.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         footstep.start();
         footstep.release();

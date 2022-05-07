@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossAI : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class BossAI : MonoBehaviour
 
     public bool canRotate = false;
 
+    [Header("UI")]
+    public Slider healthbar;
+
     private void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
@@ -60,9 +64,12 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Die();
+        CheckHealth();
 
         if(!isAlive) { return; }
+
+        if (playerInRange && !healthbar.gameObject.activeInHierarchy)
+            healthbar.gameObject.SetActive(true);
 
         CheckPlayerDist();
         
@@ -125,10 +132,19 @@ public class BossAI : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void CheckHealth()
     {
+        if (healthbar.gameObject.activeInHierarchy)
+        {
+            healthbar.value = Mathf.Clamp((bossHealth / stats.Health.Value), 0, stats.Health.Value);
+        }
+
         if (bossHealth <= 0)
         {
+            healthbar.gameObject.SetActive(false);
+
+            GetComponent<Collider>().enabled = false;
+
             isAlive = false;
             navMesh.isStopped = true;
 
