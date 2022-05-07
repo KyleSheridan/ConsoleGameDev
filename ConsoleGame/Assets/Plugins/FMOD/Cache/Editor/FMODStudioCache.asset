@@ -148,11 +148,38 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637874902192333754
+  lastModified: 637875060871649466
   FileSizes:
   - Name: Desktop
-    Value: 2729952
+    Value: 2832416
   Exists: 1
+--- !u!114 &-4484056730535383484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CrateBreakSFX
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/CrateBreakSFX
+  Guid:
+    Data1: 694240027
+    Data2: 1106627795
+    Data3: 954020486
+    Data4: 404565348
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-3267033761322376774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,10 +223,10 @@ MonoBehaviour:
   Path: ../ConsoleFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637874902192353765
+  lastModified: 637875060871669474
   FileSizes:
   - Name: Desktop
-    Value: 1216
+    Value: 1304
   Exists: 1
 --- !u!114 &-1715642597442179606
 MonoBehaviour:
@@ -251,12 +278,14 @@ MonoBehaviour:
   - {fileID: 2947056282607814082}
   - {fileID: -1715642597442179606}
   - {fileID: 2092244243269285635}
+  - {fileID: -4484056730535383484}
+  - {fileID: 2635443490030699118}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4518686957183584304}
   StringsBanks:
   - {fileID: -2883449034265477477}
-  cacheTime: 637874902192353765
+  cacheTime: 637875060871669474
   cacheVersion: 10
 --- !u!114 &2092244243269285635
 MonoBehaviour:
@@ -286,6 +315,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2635443490030699118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/BottleBreakSFX
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/BottleBreakSFX
+  Guid:
+    Data1: 1395577264
+    Data2: 1116960829
+    Data3: 1931449997
+    Data4: 737073751
+  Banks:
+  - {fileID: -4518686957183584304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1400
 --- !u!114 &2947056282607814082
 MonoBehaviour:
   m_ObjectHideFlags: 0
