@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6522745122228436211}
   - component: {fileID: 6522745122228436215}
   - component: {fileID: 6522745122228436212}
+  - component: {fileID: 5152657152050606577}
+  - component: {fileID: 8576619741026826037}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -82,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   pauseFirstButton: {fileID: 0}
   optionsFirstButton: {fileID: 0}
   optionsClosedButton: {fileID: 0}
@@ -103,3 +106,28 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   progressSlider: {fileID: 0}
   progressText: {fileID: 0}
+--- !u!114 &5152657152050606577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522745122228436205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d1e2100a6ad7540bc1cdfd4bb89f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8576619741026826037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522745122228436205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0025159a0ec08458b4bab3680f5157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 0}

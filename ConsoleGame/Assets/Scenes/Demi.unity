@@ -560,6 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   pauseFirstButton: {fileID: 0}
   optionsFirstButton: {fileID: 308334487}
   optionsClosedButton: {fileID: 1782211491}
@@ -698,6 +699,14 @@ PrefabInstance:
     - target: {fileID: 555823587616450551, guid: 569ea456a1cbeca408def19eeb9ea019, type: 3}
       propertyPath: m_Name
       value: LoadingCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 555823587704515620, guid: 569ea456a1cbeca408def19eeb9ea019, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 555823587704515620, guid: 569ea456a1cbeca408def19eeb9ea019, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569ea456a1cbeca408def19eeb9ea019, type: 3}

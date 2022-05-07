@@ -25,21 +25,20 @@ public class Destructible : MonoBehaviour
 
         if (other.gameObject.tag == "Ranged")
         {
-            Break();
             Destroy(gameObject);
+            Break();
         }
 
         if (other.gameObject.tag == "Magic")
         {
-            Break(); 
             Destroy(gameObject);
+            Break(); 
         }
     }
     private void Break()
     {
         Instantiate(crackedVersion, transform.position, transform.rotation);
         int randNum = Random.Range(0, spawnableObjects.Length);
-        Debug.Log("This is my state oo" + randNum);
         if (spawnableObjects[randNum] != null)
         {
             Instantiate(spawnableObjects[randNum], transform.position, transform.rotation);
