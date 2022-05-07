@@ -12,6 +12,7 @@ public class BossAI : MonoBehaviour
     Character stats;
 
     public Transform player;
+    public GameObject portal;
 
     public float aggressiveRange;
 
@@ -141,6 +142,8 @@ public class BossAI : MonoBehaviour
 
         if (bossHealth <= 0)
         {
+            portal.SetActive(true);
+
             healthbar.gameObject.SetActive(false);
 
             GetComponent<Collider>().enabled = false;
@@ -187,7 +190,7 @@ public class BossAI : MonoBehaviour
 
         if (other.gameObject.tag == "Magic")
         {
-            float baseDamage = other.gameObject.GetComponent<RangedAttack>().damage;
+            float baseDamage = other.gameObject.GetComponent<MagicBall>().damage;
 
             float rawDamage = baseDamage - stats.MagicDefence.Value;
 

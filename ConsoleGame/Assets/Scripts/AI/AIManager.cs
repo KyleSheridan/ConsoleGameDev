@@ -62,7 +62,7 @@ public class AIManager : MonoBehaviour
         
         if(other.gameObject.tag == "Magic")
         {
-            float baseDamage = other.gameObject.GetComponent<RangedAttack>().damage;
+            float baseDamage = other.gameObject.GetComponent<MagicBall>().damage;
 
             float rawDamage = baseDamage - stats.MagicDefence.Value;
 

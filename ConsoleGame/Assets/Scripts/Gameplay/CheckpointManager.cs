@@ -14,12 +14,10 @@ public class CheckpointManager : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(_instance.gameObject);
         }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
+
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 }
