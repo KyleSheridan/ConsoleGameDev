@@ -30,6 +30,7 @@ public class LevelSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = 1;
         frontXpBar.fillAmount = 0;
         backXpBar.fillAmount = 0;
         requiredXp = CalculateRequiredXP();

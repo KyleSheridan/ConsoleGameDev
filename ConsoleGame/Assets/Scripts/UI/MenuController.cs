@@ -27,13 +27,23 @@ public class MenuController : MonoBehaviour
     {
         if(pauseMenu != null)
         {
-            if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Options"))
+#if UNITY_PS4
+            if (Input.GetButtonDown("C_Options"))
             {
                 if (!optionsMenu.activeInHierarchy)
                 {
                     PauseUnpause();
                 }
             }
+#else
+            if(Input.GetButtonDown("Options"))
+            {
+                if (!optionsMenu.activeInHierarchy)
+                {
+                    PauseUnpause();
+                }
+            }
+#endif
         }
     }
 

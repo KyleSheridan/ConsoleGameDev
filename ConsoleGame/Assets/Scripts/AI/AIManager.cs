@@ -83,6 +83,8 @@ public class AIManager : MonoBehaviour
             agentNav.enabled = false;
             navMesh.isStopped = true;
 
+            GetComponent<Collider>().enabled = false;
+
             StartCoroutine(DestroyWait(6f));
         }
     }

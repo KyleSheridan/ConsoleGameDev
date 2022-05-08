@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpCanvas: {fileID: 6220172276651801383}
+  startButton: {fileID: 6220172276666567848}
   character: {fileID: 0}
   levelSystem: {fileID: 0}
   playerHealth: {fileID: 0}
@@ -588,6 +589,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6220172276666567848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 563659470871170518, guid: b4e91a1dd4fa99048b69d816a5a651ee, type: 3}
+  m_PrefabInstance: {fileID: 5872967656918614398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6220172276666567849 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 563659470871170519, guid: b4e91a1dd4fa99048b69d816a5a651ee, type: 3}

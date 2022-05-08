@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class LevelUpUI : MonoBehaviour
 {
     public GameObject levelUpCanvas;
+
+    public GameObject startButton;
 
     public Character character;
 
@@ -68,6 +71,11 @@ public class LevelUpUI : MonoBehaviour
     {
         levelUpCanvas.SetActive(true);
         Time.timeScale = 0f;
+
+        //clear selected object 
+        EventSystem.current.SetSelectedGameObject(null);
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(startButton);
 
         pointsVal = Mathf.Clamp(levelSystem.level - character.Level, 0, levelSystem.level);
     }
