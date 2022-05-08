@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Demi.unity
     guid: df4e3cbee48c8e440b157f73dd915357
   - enabled: 1
-    path: Assets/Scenes/Kyle.unity
-    guid: 9264cf02f2fadd846a59787e6c0c4e43
-  - enabled: 1
     path: Assets/Scenes/HubArea.unity
     guid: 0dff18fd1587aeb4a826244ce5671ef8
   - enabled: 1

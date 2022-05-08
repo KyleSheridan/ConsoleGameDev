@@ -59,6 +59,8 @@ public class Character : MonoBehaviour
         Vitality++;
 
         UpdateStats();
+
+        PlayerHealth.maxHealth = Health.Value;
     }
 
     public void IncreaseStrength()
