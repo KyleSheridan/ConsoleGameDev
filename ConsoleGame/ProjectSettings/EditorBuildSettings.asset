@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Demi.unity
+    path: Assets/Scenes/Demi Work/Demi.unity
     guid: df4e3cbee48c8e440b157f73dd915357
   - enabled: 1
-    path: Assets/Scenes/HubArea.unity
+    path: Assets/Scenes/Kyle Work/HubArea.unity
     guid: 0dff18fd1587aeb4a826244ce5671ef8
   - enabled: 1
-    path: Assets/Scenes/TutorialLevel.unity
+    path: Assets/Scenes/Kyle Work/TutorialLevel.unity
     guid: bea7512bb6284ae448f22a5e19d2986c
   - enabled: 1
-    path: Assets/Scenes/DemiLevel.unity
+    path: Assets/Scenes/Demi Work/DemiLevel.unity
     guid: c1533b1a45a86454c9c48ec645ede64f
   m_configObjects: {}
