@@ -110,7 +110,6 @@ public class BossAI : MonoBehaviour
     public void EndAttack()
     {
         attacking = false;
-
     }
 
     private void MoveToPlayer()

@@ -64,11 +64,6 @@ public class WallRunning : MonoBehaviour
         controller.wallRunningOnLeft = wallLeft;
 
         controller.wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
-
-        //Vector3 wallForward = Vector3.Cross(controller.wallNormal, transform.up);
-
-        //if ((transform.forward - wallForward).magnitude > (transform.forward + wallForward).magnitude)
-        //    controller.wallNormal = -controller.wallNormal;
     }
 
     private void StopWallRun()
